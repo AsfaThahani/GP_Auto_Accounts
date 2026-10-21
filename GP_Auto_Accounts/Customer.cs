@@ -19,14 +19,12 @@ namespace GP_Auto_Accounts
         {
             InitializeComponent();
 
-            // Event subscriptions
             dgvCustomers.CellBeginEdit += dgvCustomers_CellBeginEdit;
             dgvCustomers.CellEndEdit += dgvCustomers_CellEndEdit;
             dgvCustomers.CellContentClick += dgvCustomers_CellContentClick;
             comboBoxCustomer.OnSelectedIndexChanged += comboBoxCustomer_OnSelectedIndexChanged;
             dgvCustomers.DataBindingComplete += dgvCustomers_DataBindingComplete;
 
-            // Initial load
             LoadCustomers();
             LoadCustomersNames();
         }
@@ -149,11 +147,9 @@ namespace GP_Auto_Accounts
 
         private void dgvCustomers_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            // Hide the ID column
             if (dgvCustomers.Columns.Contains("CustomerID"))
                 dgvCustomers.Columns["CustomerID"].Visible = false;
 
-            // Force the Delete button column to the very end
             if (dgvCustomers.Columns.Contains("DeleteColumn"))
                 dgvCustomers.Columns["DeleteColumn"].DisplayIndex = dgvCustomers.Columns.Count - 1;
         }
@@ -171,7 +167,6 @@ namespace GP_Auto_Accounts
             var row = dgvCustomers.Rows[e.RowIndex];
             var currentValue = row.Cells[e.ColumnIndex].Value;
 
-            // Skip if no change
             if ((previousCellValue == null && currentValue == null) ||
                 (previousCellValue != null && previousCellValue.Equals(currentValue)))
             {
@@ -195,7 +190,6 @@ namespace GP_Auto_Accounts
                 return;
             }
 
-            // Validation
             if (columnName == "CustomerName" && !Regex.IsMatch(customerName, @"^[a-zA-Z0-9\s]+$"))
             {
                 MessageBox.Show("Customer Name must contain only letters, numbers, and spaces.");
@@ -211,7 +205,6 @@ namespace GP_Auto_Accounts
                 return;
             }
 
-            // Confirm save
             if (MessageBox.Show("Do you want to save the changes?", "Confirm Update",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
             {

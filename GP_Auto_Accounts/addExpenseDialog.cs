@@ -50,12 +50,10 @@ namespace GP_Auto_Accounts
                 MessageBox.Show("Category '" + categoryName + "' added successfully.");
                 txtCategoryName.Clear();
 
-                // Optionally reload the category list
-                // LoadExpenseNames(); 
             }
             catch (SqlException ex)
             {
-                if (ex.Number == 2627) // Duplicate key error
+                if (ex.Number == 2627)
                 {
                     MessageBox.Show("This category already exists.");
                 }

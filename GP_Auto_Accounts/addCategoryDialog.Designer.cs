@@ -2,15 +2,8 @@
 {
     partial class addCategoryDialog
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.btnCancel = new Krypton.Toolkit.KryptonButton();
@@ -35,9 +24,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rjToggleButton1 = new RJCodeAdvance.RJControls.RJToggleButton();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
             this.btnCancel.Location = new System.Drawing.Point(319, 162);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -98,9 +84,6 @@
             this.btnCancel.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnCancel.Values.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnAdd
-            // 
             this.btnAdd.Location = new System.Drawing.Point(236, 162);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -161,9 +144,6 @@
             this.btnAdd.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnAdd.Values.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txtCategory
-            // 
             this.txtCategory.Location = new System.Drawing.Point(214, 104);
             this.txtCategory.MaximumSize = new System.Drawing.Size(182, 25);
             this.txtCategory.Name = "txtCategory";
@@ -171,9 +151,6 @@
             this.txtCategory.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtCategory.StateCommon.Border.Width = 0;
             this.txtCategory.TabIndex = 95;
-            // 
-            // kryptonLabel2
-            // 
             this.kryptonLabel2.Location = new System.Drawing.Point(51, 104);
             this.kryptonLabel2.MaximumSize = new System.Drawing.Size(140, 23);
             this.kryptonLabel2.Name = "kryptonLabel2";
@@ -182,9 +159,6 @@
             this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel2.TabIndex = 94;
             this.kryptonLabel2.Values.Text = "Category Name";
-            // 
-            // label1
-            // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -193,9 +167,6 @@
             this.label1.Size = new System.Drawing.Size(135, 21);
             this.label1.TabIndex = 93;
             this.label1.Text = "Category Details";
-            // 
-            // rjToggleButton1
-            // 
             this.rjToggleButton1.AutoSize = true;
             this.rjToggleButton1.Location = new System.Drawing.Point(268, 46);
             this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
@@ -208,9 +179,6 @@
             this.rjToggleButton1.TabIndex = 108;
             this.rjToggleButton1.UseVisualStyleBackColor = true;
             this.rjToggleButton1.CheckedChanged += new System.EventHandler(this.rjToggleButton1_CheckedChanged);
-            // 
-            // addCategoryDialog
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));

@@ -12,7 +12,6 @@ public class SmoothRoundedForm : Form
 
     public SmoothRoundedForm()
     {
-        // Only apply custom styles at runtime
         if (!IsDesignMode)
         {
             this.FormBorderStyle = FormBorderStyle.None;
@@ -22,14 +21,10 @@ public class SmoothRoundedForm : Form
                          ControlStyles.AllPaintingInWmPaint, true);
         }
 
-        // Always apply these (designer-friendly)
         this.BackColor = Color.FromArgb(240, 240, 240);
         this.Padding = new Padding(10);
     }
 
-    // ========================
-    // 1. DESIGNER COMPATIBILITY
-    // ========================
     private bool IsDesignMode
     {
         get
@@ -46,29 +41,23 @@ public class SmoothRoundedForm : Form
 
         if (IsDesignMode)
         {
-            // Show design-time visualization
             ControlPaint.DrawBorder(e.Graphics, ClientRectangle,
                 Color.DarkGray, ButtonBorderStyle.Dashed);
             return;
         }
 
-        // ========================
-        // 2. RUNTIME RENDERING
-        // ========================
         e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
         e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
 
         using (var path = GetRoundedPath(ClientRectangle, CornerRadius))
         {
-            // Fill background
             using (var brush = new SolidBrush(BackColor))
                 e.Graphics.FillPath(brush, path);
 
-            // Draw smooth border
-            using (var pen = new Pen(Color.FromArgb(120, 120, 120), 5f))  // Thicker pen for a more solid border
+            using (var pen = new Pen(Color.FromArgb(120, 120, 120), 5f))
             {
-                pen.Alignment = PenAlignment.Center;  // Change PenAlignment to 'Center' for a smoother border
+                pen.Alignment = PenAlignment.Center;
                 e.Graphics.DrawPath(pen, path);
             }
         }
@@ -88,9 +77,6 @@ public class SmoothRoundedForm : Form
         return path;
     }
 
-    // ========================
-    // 3. FORM FUNCTIONALITY
-    // ========================
     protected override void OnSizeChanged(EventArgs e)
     {
         base.OnSizeChanged(e);
@@ -107,7 +93,6 @@ public class SmoothRoundedForm : Form
         }
     }
 
-    // Dragging implementation
     protected override void OnMouseDown(MouseEventArgs e)
     {
         base.OnMouseDown(e);
@@ -147,9 +132,6 @@ public class SmoothRoundedForm : Form
     private void InitializeComponent()
     {
             this.SuspendLayout();
-            // 
-            // SmoothRoundedForm
-            // 
             this.ClientSize = new System.Drawing.Size(555, 449);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SmoothRoundedForm";

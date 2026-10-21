@@ -39,7 +39,6 @@ namespace GP_Auto_Accounts
             {
                 con.Open();
 
-                // Optional: Check for duplicates
                 SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM Service WHERE ServiceName = @name", con);
                 checkCmd.Parameters.AddWithValue("@name", serviceName);
 
@@ -50,7 +49,6 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Insert new service
                 SqlCommand cmd = new SqlCommand("INSERT INTO Service (ServiceName) VALUES (@name)", con);
                 cmd.Parameters.AddWithValue("@name", serviceName);
 
@@ -59,8 +57,8 @@ namespace GP_Auto_Accounts
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Service added successfully.");
-                    this.DialogResult = DialogResult.OK; // To notify the calling form
-                    this.Close(); // Close the dialog
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {

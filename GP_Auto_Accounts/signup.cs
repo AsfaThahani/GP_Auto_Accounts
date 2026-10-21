@@ -31,7 +31,7 @@ namespace GP_Auto_Accounts
         {
             cmbUserType.Items.Clear();
             cmbUserType.Items.AddRange(new string[] { "Admin", "Staff", "Manager", "Viewer" });
-            cmbUserType.SelectedIndex = -1; // optional: select the first type by default
+            cmbUserType.SelectedIndex = -1;
         }
         private void signup_Load(object sender, EventArgs e)
         {
@@ -61,7 +61,6 @@ namespace GP_Auto_Accounts
         private void kryptonButton22_Click(object sender, EventArgs e)
         {
 
-            // Step 1: Check for empty required fields
             if (string.IsNullOrWhiteSpace(txtFullName.Text) ||
                 string.IsNullOrWhiteSpace(txtUsername.Text) ||
                 string.IsNullOrWhiteSpace(txtEmail.Text) ||
@@ -74,20 +73,17 @@ namespace GP_Auto_Accounts
                 return;
             }
 
-            // Step 2: Check if passwords match
             if (txtPassword.Text != txtConfirmPassword.Text)
             {
                 MessageBox.Show("Passwords do not match.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Step 3: Optionally check for duplicate usernames
             string connectionString = "Server=.\\SQLEXPRESS;Database=AMS;Integrated Security=True;";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                // Check if username already exists
                 SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM UserAccount WHERE Username = @Username", conn);
                 checkCmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim());
 
@@ -98,7 +94,6 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Insert new user
                 string insertQuery = @"INSERT INTO UserAccount (FullName, Username, Email, ContactNo, Password, UserType)
                                VALUES (@FullName, @Username, @Email, @Contact, @Password, @UserType)";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
@@ -114,7 +109,7 @@ namespace GP_Auto_Accounts
                     {
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("User registered successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close(); // Optional: Close the signup form
+                        this.Close();
                     }
                     catch (Exception ex)
                     {

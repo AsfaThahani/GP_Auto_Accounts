@@ -22,7 +22,6 @@ namespace GP_Auto_Accounts
         {
             InitializeComponent();
 
-            // Initialize the Action to point to the LoadSupplierNames method of this instance
             this.RefreshSupplierComboBox = new Action(LoadSupplierNames);
 
             LoadSupplierNames();
@@ -71,14 +70,13 @@ namespace GP_Auto_Accounts
                     }
                     reader.Close();
 
-                    //Add "Show All" option at the top
                     comboBoxSupplier.Items.Insert(0, new SupplierItem
                     {
                         SupplierID = -1,
                         SupplierName = "-- Show All --"
                     });
 
-                    comboBoxSupplier.SelectedIndex = 0; // Set default selection to "Show All"
+                    comboBoxSupplier.SelectedIndex = 0;
                 }
                 catch (Exception ex)
                 {
@@ -92,27 +90,21 @@ namespace GP_Auto_Accounts
 
         private void LoadFilteredPayment()
         {
-            // Retrieve Supplier ID from ComboBox
-            int supplierId = -1; // Default to "Show All"
+            int supplierId = -1;
             if (comboBoxSupplier.SelectedItem is SupplierItem selectedItem)
             {
                 supplierId = selectedItem.SupplierID;
             }
 
-            // Retrieve From Date from DateTimePicker
             DateTime? fromDate = dtpFromDate.Checked ? dtpFromDate.Value.Date : (DateTime?)null;
 
-            // Retrieve To Date from DateTimePicker
             DateTime? toDate = dtpToDate.Checked ? dtpToDate.Value.Date : (DateTime?)null;
 
-            // --- Optional: Basic date validation ---
             if (fromDate.HasValue && toDate.HasValue && fromDate.Value.Date > toDate.Value.Date)
             {
                 MessageBox.Show("'From Date' cannot be after 'To Date'. Please adjust your selection.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                // You might consider resetting one of the DateTimePickers here if you want to enforce validity immediately.
-                return; // Stop execution if dates are invalid
+                return;
             }
-            // --- End Optional Validation ---
 
 
             string query = @"
@@ -166,12 +158,12 @@ namespace GP_Auto_Accounts
 
                 if (fromDate.HasValue)
                 {
-                    cmd.Parameters.AddWithValue("@FromDate", fromDate.Value); // Value is already .Date from above
+                    cmd.Parameters.AddWithValue("@FromDate", fromDate.Value);
                 }
 
                 if (toDate.HasValue)
                 {
-                    cmd.Parameters.AddWithValue("@ToDate", toDate.Value.AddDays(1).AddTicks(-1)); // Value is already .Date from above
+                    cmd.Parameters.AddWithValue("@ToDate", toDate.Value.AddDays(1).AddTicks(-1));
                 }
 
                 try
@@ -197,7 +189,7 @@ namespace GP_Auto_Accounts
                     }
                     else
                     {
-                        dataGridView1.DataSource = null; // Clear previous data
+                        dataGridView1.DataSource = null;
                         MessageBox.Show("No purchase payment data found for the selected criteria.", "No Records", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -213,9 +205,9 @@ namespace GP_Auto_Accounts
         {
             LoadSupplierNames();
 
-            LoadSupplierPaymentData(-1); // -1 means "show all"
+            LoadSupplierPaymentData(-1);
 
-            dtpToDate.Value = DateTime.Today.AddMonths(-1); // example: set default range
+            dtpToDate.Value = DateTime.Today.AddMonths(-1);
             dtpToDate.Value = DateTime.Today;
             LoadFilteredPayment();
         }
@@ -249,16 +241,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             All_Purchase invoiceForm = new All_Purchase();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
         }
@@ -268,16 +256,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             Customer invoiceForm = new Customer();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
         }
@@ -287,16 +271,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             NewPurchase purchaseForm = new NewPurchase();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(purchaseForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(purchaseForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             purchaseForm.panel1.Dock = DockStyle.Top;
             purchaseForm.panel2.Dock = DockStyle.Fill;
         }
@@ -384,7 +364,6 @@ namespace GP_Auto_Accounts
                     }
                     else
                     {
-                        // Optional: Clear previous data if no rows are returned
                         dataGridView1.DataSource = null;
                         MessageBox.Show("No purchase payment data found for the selected supplier (or no data at all).");
                     }
@@ -410,16 +389,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the NewPurchase form
             NewPurchase newPurchaseForm = new NewPurchase();
 
-            // Access panel1 from NewPurchase and add it to panel1 in All_Purchase
             panel1.Controls.Add(newPurchaseForm.panel1);
 
-            // Access panel2 from NewPurchase and add it to panel2 in All_Purchase
             panel2.Controls.Add(newPurchaseForm.panel2);
 
-            // Optionally, make sure the controls from NewPurchase are correctly docked or sized
             newPurchaseForm.panel1.Dock = DockStyle.Top;
             newPurchaseForm.panel2.Dock = DockStyle.Fill;
         }
@@ -431,13 +406,10 @@ namespace GP_Auto_Accounts
 
         private void kryptonButton15_Click_1(object sender, EventArgs e)
         {
-            //  No implementation was provided in the original code.  You might have intended to open All_Purchase form itself?
-            //  If so, and if this button is within the All_Purchase form, this is probably not what you want.
-            //  If you want to open *another* instance of All_Purchase:
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            All_Purchase allPurchaseForm = new All_Purchase(); // Create a new instance.
+            All_Purchase allPurchaseForm = new All_Purchase();
             panel1.Controls.Add(allPurchaseForm.panel1);
             panel2.Controls.Add(allPurchaseForm.panel2);
             allPurchaseForm.panel1.Dock = DockStyle.Top;

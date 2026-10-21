@@ -55,7 +55,7 @@ namespace GP_Auto_Accounts
                         if (rows > 0)
                         {
                             MessageBox.Show("Category added successfully.");
-                            this.Close(); // or clear fields
+                            this.Close();
                         }
                         else
                         {
@@ -75,7 +75,6 @@ namespace GP_Auto_Accounts
         {
             if (rjToggleButton1.Checked)
             {
-                // Dark Mode
                 this.BackColor = Color.FromArgb(30, 30, 30);
                 foreach (Control ctrl in this.Controls)
                 {
@@ -85,7 +84,6 @@ namespace GP_Auto_Accounts
             }
             else
             {
-                // Light Mode
                 this.BackColor = SystemColors.Control;
                 foreach (Control ctrl in this.Controls)
                 {

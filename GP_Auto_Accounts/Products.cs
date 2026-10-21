@@ -37,11 +37,10 @@ namespace GP_Auto_Accounts
             comboBoxCategory1.OnSelectedIndexChanged += comboBoxCategory1_SelectedIndexChanged;
 
             LoadSupplierComboBox();
-            LoadCategories();    // <-- Changed from LoadCategory1Names()
+            LoadCategories();
             FillProductTable();
         }
 
-        // Unified category loader for both comboboxes
         private void LoadCategories()
         {
             try
@@ -58,12 +57,12 @@ namespace GP_Auto_Accounts
                             da.Fill(dt);
                         }
 
-                        comboBoxCategory1.DataSource = dt.Copy(); // filter comboBox gets a copy
+                        comboBoxCategory1.DataSource = dt.Copy();
                         comboBoxCategory1.DisplayMember = "CategoryName";
                         comboBoxCategory1.ValueMember = "CategoryID";
                         comboBoxCategory1.SelectedIndex = -1;
 
-                        comboBoxCategory.DataSource = dt; // add/edit comboBox gets original
+                        comboBoxCategory.DataSource = dt;
                         comboBoxCategory.DisplayMember = "CategoryName";
                         comboBoxCategory.ValueMember = "CategoryID";
                         comboBoxCategory.SelectedIndex = -1;
@@ -90,7 +89,6 @@ namespace GP_Auto_Accounts
                         var dt = new DataTable();
                         dt.Load(reader);
 
-                        // You probably want to bind supplier comboBox here similarly if needed
                     }
                 }
             }
@@ -127,7 +125,7 @@ LEFT JOIN Category C ON P.Category_ID = C.CategoryID
 
                     if (comboBoxCategory1.SelectedIndex >= 0)
                     {
-                        query += " WHERE P.Category_ID = @catID";  // Use Category_ID filtering by ID
+                        query += " WHERE P.Category_ID = @catID";
                     }
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -270,13 +268,9 @@ LEFT JOIN Category C ON P.Category_ID = C.CategoryID
             txtSaleUnitPrice.Text = row.Cells["SaleUnitPrice"].Value?.ToString();
             txtDescription.Text = row.Cells["Description"].Value?.ToString();
 
-            // Instead of setting Text, set SelectedValue based on Category_ID from the row:
             if (row.Cells["CategoryName"].Value != null)
             {
-                // Assuming your DataGridView has a hidden Category_ID column or you can fetch it somehow
-                // If you do NOT have Category_ID in the DataGridView, you should add it in your SQL query and DataTable
 
-                // Example: suppose you have Category_ID column
                 var categoryIdObj = row.Cells["Category_ID"]?.Value;
                 if (categoryIdObj != null && int.TryParse(categoryIdObj.ToString(), out int categoryId))
                 {
@@ -463,7 +457,6 @@ LEFT JOIN Category C ON P.Category_ID = C.CategoryID
 
         private void comboBoxCategory_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            // You can handle add/edit category selection changed here if needed
         }
     }
 }

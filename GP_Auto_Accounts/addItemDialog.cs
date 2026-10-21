@@ -69,7 +69,7 @@ namespace GP_Auto_Accounts
                     if (rows > 0)
                     {
                         MessageBox.Show("Item added successfully.");
-                        this.Close(); // or clear fields
+                        this.Close();
                     }
                     else
                     {

@@ -2,15 +2,8 @@
 {
     partial class Expense
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Expense));
@@ -84,9 +73,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.kryptonGroupBox4);
             this.panel2.Controls.Add(this.kryptonGroupBox2);
@@ -94,14 +80,8 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1389, 842);
             this.panel2.TabIndex = 47;
-            // 
-            // kryptonGroupBox4
-            // 
             this.kryptonGroupBox4.CaptionStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonGroupBox4.Location = new System.Drawing.Point(63, 269);
-            // 
-            // kryptonGroupBox4.Panel
-            // 
             this.kryptonGroupBox4.Panel.Controls.Add(this.dtpToDate);
             this.kryptonGroupBox4.Panel.Controls.Add(this.kryptonLabel10);
             this.kryptonGroupBox4.Panel.Controls.Add(this.kryptonButton15);
@@ -122,9 +102,6 @@
             this.kryptonGroupBox4.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.kryptonGroupBox4.TabIndex = 30;
             this.kryptonGroupBox4.Values.Heading = "   Expenses List";
-            // 
-            // kryptonButton15
-            // 
             this.kryptonButton15.Location = new System.Drawing.Point(376, 18);
             this.kryptonButton15.Name = "kryptonButton15";
             this.kryptonButton15.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -145,9 +122,6 @@
             this.kryptonButton15.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton15.Values.Image = global::GP_Auto_Accounts.Properties.Resources.plus_small__3_;
             this.kryptonButton15.Values.Text = "+";
-            // 
-            // dgvExpenses
-            // 
             this.dgvExpenses.AllowUserToAddRows = false;
             this.dgvExpenses.AllowUserToDeleteRows = false;
             this.dgvExpenses.AllowUserToResizeColumns = false;
@@ -174,9 +148,6 @@
             this.dgvExpenses.StateCommon.HeaderRow.Back.Color1 = System.Drawing.Color.SkyBlue;
             this.dgvExpenses.StateCommon.HeaderRow.Back.Color2 = System.Drawing.Color.SkyBlue;
             this.dgvExpenses.TabIndex = 19;
-            // 
-            // kryptonLabel3
-            // 
             this.kryptonLabel3.Location = new System.Drawing.Point(18, 20);
             this.kryptonLabel3.MaximumSize = new System.Drawing.Size(150, 25);
             this.kryptonLabel3.Name = "kryptonLabel3";
@@ -185,9 +156,6 @@
             this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel3.TabIndex = 45;
             this.kryptonLabel3.Values.Text = "Expense Type";
-            // 
-            // cmbExp
-            // 
             this.cmbExp.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cmbExp.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.cmbExp.BorderSize = 0;
@@ -204,14 +172,8 @@
             this.cmbExp.TabIndex = 46;
             this.cmbExp.Texts = "";
             this.cmbExp.OnSelectedIndexChanged += new System.EventHandler(this.cmbExp_OnSelectedIndexChanged);
-            // 
-            // kryptonGroupBox2
-            // 
             this.kryptonGroupBox2.CaptionStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonGroupBox2.Location = new System.Drawing.Point(63, 40);
-            // 
-            // kryptonGroupBox2.Panel
-            // 
             this.kryptonGroupBox2.Panel.Controls.Add(this.dtpExpenseDate);
             this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonLabel1);
             this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonButton12);
@@ -238,9 +200,6 @@
             this.kryptonGroupBox2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonGroupBox2.TabIndex = 29;
             this.kryptonGroupBox2.Values.Heading = "   Add Expenses";
-            // 
-            // dtpExpenseDate
-            // 
             this.dtpExpenseDate.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dtpExpenseDate.BorderSize = 0;
             this.dtpExpenseDate.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -252,9 +211,6 @@
             this.dtpExpenseDate.SkinColor = System.Drawing.Color.SkyBlue;
             this.dtpExpenseDate.TabIndex = 81;
             this.dtpExpenseDate.TextColor = System.Drawing.Color.Black;
-            // 
-            // kryptonLabel1
-            // 
             this.kryptonLabel1.Location = new System.Drawing.Point(18, 22);
             this.kryptonLabel1.MaximumSize = new System.Drawing.Size(150, 25);
             this.kryptonLabel1.Name = "kryptonLabel1";
@@ -263,9 +219,6 @@
             this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel1.TabIndex = 47;
             this.kryptonLabel1.Values.Text = "Expense Type";
-            // 
-            // kryptonButton12
-            // 
             this.kryptonButton12.Location = new System.Drawing.Point(376, 20);
             this.kryptonButton12.Name = "kryptonButton12";
             this.kryptonButton12.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -287,9 +240,6 @@
             this.kryptonButton12.Values.Image = global::GP_Auto_Accounts.Properties.Resources.plus_small__3_;
             this.kryptonButton12.Values.Text = "+";
             this.kryptonButton12.Click += new System.EventHandler(this.kryptonButton12_Click);
-            // 
-            // rjComboBox1
-            // 
             this.rjComboBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rjComboBox1.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.rjComboBox1.BorderSize = 0;
@@ -305,9 +255,6 @@
             this.rjComboBox1.Size = new System.Drawing.Size(256, 25);
             this.rjComboBox1.TabIndex = 80;
             this.rjComboBox1.Texts = "";
-            // 
-            // txtAmount
-            // 
             this.txtAmount.Location = new System.Drawing.Point(180, 75);
             this.txtAmount.MaximumSize = new System.Drawing.Size(256, 25);
             this.txtAmount.Name = "txtAmount";
@@ -315,9 +262,6 @@
             this.txtAmount.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.txtAmount.StateCommon.Border.Width = 0;
             this.txtAmount.TabIndex = 75;
-            // 
-            // kryptonLabel5
-            // 
             this.kryptonLabel5.Location = new System.Drawing.Point(18, 75);
             this.kryptonLabel5.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel5.Name = "kryptonLabel5";
@@ -326,9 +270,6 @@
             this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel5.TabIndex = 74;
             this.kryptonLabel5.Values.Text = "Total Amount";
-            // 
-            // btnClear
-            // 
             this.btnClear.Location = new System.Drawing.Point(1137, 103);
             this.btnClear.Name = "btnClear";
             this.btnClear.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -388,9 +329,6 @@
             this.btnClear.TabIndex = 73;
             this.btnClear.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnClear.Values.Text = "Clear";
-            // 
-            // btnAdd
-            // 
             this.btnAdd.Location = new System.Drawing.Point(1064, 103);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -451,9 +389,6 @@
             this.btnAdd.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnAdd.Values.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // kryptonLabel4
-            // 
             this.kryptonLabel4.Location = new System.Drawing.Point(598, 71);
             this.kryptonLabel4.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel4.Name = "kryptonLabel4";
@@ -462,9 +397,6 @@
             this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel4.TabIndex = 71;
             this.kryptonLabel4.Values.Text = "Description";
-            // 
-            // txtDescription
-            // 
             this.txtDescription.Location = new System.Drawing.Point(731, 75);
             this.txtDescription.MaximumSize = new System.Drawing.Size(256, 50);
             this.txtDescription.Multiline = true;
@@ -473,9 +405,6 @@
             this.txtDescription.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.txtDescription.StateCommon.Border.Width = 0;
             this.txtDescription.TabIndex = 70;
-            // 
-            // kryptonLabel11
-            // 
             this.kryptonLabel11.Location = new System.Drawing.Point(598, 22);
             this.kryptonLabel11.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel11.Name = "kryptonLabel11";
@@ -484,9 +413,6 @@
             this.kryptonLabel11.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel11.TabIndex = 54;
             this.kryptonLabel11.Values.Text = "Date";
-            // 
-            // kryptonButton22
-            // 
             this.kryptonButton22.Location = new System.Drawing.Point(289, 360);
             this.kryptonButton22.Name = "kryptonButton22";
             this.kryptonButton22.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -546,9 +472,6 @@
             this.kryptonButton22.TabIndex = 32;
             this.kryptonButton22.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton22.Values.Text = "Clear";
-            // 
-            // kryptonButton24
-            // 
             this.kryptonButton24.Location = new System.Drawing.Point(198, 360);
             this.kryptonButton24.Name = "kryptonButton24";
             this.kryptonButton24.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -608,9 +531,6 @@
             this.kryptonButton24.TabIndex = 23;
             this.kryptonButton24.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton24.Values.Text = "Add";
-            // 
-            // kryptonButton11
-            // 
             this.kryptonButton11.Location = new System.Drawing.Point(1323, 14);
             this.kryptonButton11.Name = "kryptonButton11";
             this.kryptonButton11.OverrideDefault.Content.Padding = new System.Windows.Forms.Padding(0);
@@ -624,9 +544,6 @@
             this.kryptonButton11.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton11.Values.Image = global::GP_Auto_Accounts.Properties.Resources.okkkkkkk;
             this.kryptonButton11.Values.Text = "";
-            // 
-            // kryptonButton9
-            // 
             this.kryptonButton9.Location = new System.Drawing.Point(1286, 14);
             this.kryptonButton9.Name = "kryptonButton9";
             this.kryptonButton9.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -644,9 +561,6 @@
             this.kryptonButton9.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton9.Values.Image = global::GP_Auto_Accounts.Properties.Resources.okkkk;
             this.kryptonButton9.Values.Text = "kryptonButton9";
-            // 
-            // kryptonButton13
-            // 
             this.kryptonButton13.Location = new System.Drawing.Point(31, 405);
             this.kryptonButton13.Name = "kryptonButton13";
             this.kryptonButton13.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -694,9 +608,6 @@
             this.kryptonButton13.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton13.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.receipt__3_1;
             this.kryptonButton13.Values.Text = "    Expenses";
-            // 
-            // kryptonButton8
-            // 
             this.kryptonButton8.Location = new System.Drawing.Point(31, 750);
             this.kryptonButton8.Name = "kryptonButton8";
             this.kryptonButton8.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -744,9 +655,6 @@
             this.kryptonButton8.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton8.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.settings;
             this.kryptonButton8.Values.Text = "   Settings";
-            // 
-            // kryptonButton7
-            // 
             this.kryptonButton7.Location = new System.Drawing.Point(31, 681);
             this.kryptonButton7.Name = "kryptonButton7";
             this.kryptonButton7.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -794,9 +702,6 @@
             this.kryptonButton7.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton7.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.big_data_analytics;
             this.kryptonButton7.Values.Text = "  Reports";
-            // 
-            // kryptonButton6
-            // 
             this.kryptonButton6.Location = new System.Drawing.Point(31, 612);
             this.kryptonButton6.Name = "kryptonButton6";
             this.kryptonButton6.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -844,9 +749,6 @@
             this.kryptonButton6.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton6.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.boxes;
             this.kryptonButton6.Values.Text = "   Products";
-            // 
-            // kryptonButton5
-            // 
             this.kryptonButton5.Location = new System.Drawing.Point(31, 543);
             this.kryptonButton5.Name = "kryptonButton5";
             this.kryptonButton5.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -894,9 +796,6 @@
             this.kryptonButton5.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton5.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.supplier__2_;
             this.kryptonButton5.Values.Text = "   Suppliers";
-            // 
-            // kryptonButton4
-            // 
             this.kryptonButton4.Location = new System.Drawing.Point(31, 474);
             this.kryptonButton4.Name = "kryptonButton4";
             this.kryptonButton4.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -944,9 +843,6 @@
             this.kryptonButton4.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton4.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.user_bag__1_;
             this.kryptonButton4.Values.Text = "     Customers";
-            // 
-            // kryptonButton3
-            // 
             this.kryptonButton3.Location = new System.Drawing.Point(31, 336);
             this.kryptonButton3.Name = "kryptonButton3";
             this.kryptonButton3.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -994,9 +890,6 @@
             this.kryptonButton3.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton3.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.cart_arrow_down;
             this.kryptonButton3.Values.Text = "    Purchases";
-            // 
-            // kryptonButton2
-            // 
             this.kryptonButton2.Location = new System.Drawing.Point(31, 267);
             this.kryptonButton2.Name = "kryptonButton2";
             this.kryptonButton2.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -1035,9 +928,6 @@
             this.kryptonButton2.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton2.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.file_invoice_dollar__1_;
             this.kryptonButton2.Values.Text = " Invoices";
-            // 
-            // kryptonButton1
-            // 
             this.kryptonButton1.Location = new System.Drawing.Point(31, 198);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -1085,17 +975,11 @@
             this.kryptonButton1.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton1.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.dashboard__1_;
             this.kryptonButton1.Values.Text = "     Dashboard";
-            // 
-            // panel3
-            // 
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Location = new System.Drawing.Point(281, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(4, 923);
             this.panel3.TabIndex = 48;
-            // 
-            // panel1
-            // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.kryptonButton11);
             this.panel1.Controls.Add(this.kryptonButton9);
@@ -1103,9 +987,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1368, 88);
             this.panel1.TabIndex = 38;
-            // 
-            // pictureBox1
-            // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-11, -2);
             this.pictureBox1.Name = "pictureBox1";
@@ -1113,9 +994,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
-            // 
-            // dtpToDate
-            // 
             this.dtpToDate.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dtpToDate.BorderSize = 0;
             this.dtpToDate.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1127,9 +1005,6 @@
             this.dtpToDate.SkinColor = System.Drawing.Color.SkyBlue;
             this.dtpToDate.TabIndex = 47;
             this.dtpToDate.TextColor = System.Drawing.Color.Black;
-            // 
-            // kryptonLabel10
-            // 
             this.kryptonLabel10.Location = new System.Drawing.Point(899, 22);
             this.kryptonLabel10.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel10.Name = "kryptonLabel10";
@@ -1138,9 +1013,6 @@
             this.kryptonLabel10.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel10.TabIndex = 46;
             this.kryptonLabel10.Values.Text = "To";
-            // 
-            // kryptonLabel6
-            // 
             this.kryptonLabel6.Location = new System.Drawing.Point(550, 24);
             this.kryptonLabel6.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel6.Name = "kryptonLabel6";
@@ -1149,9 +1021,6 @@
             this.kryptonLabel6.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel6.TabIndex = 45;
             this.kryptonLabel6.Values.Text = "From";
-            // 
-            // dtpFromDate
-            // 
             this.dtpFromDate.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dtpFromDate.BorderSize = 0;
             this.dtpFromDate.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1163,37 +1032,22 @@
             this.dtpFromDate.SkinColor = System.Drawing.Color.SkyBlue;
             this.dtpFromDate.TabIndex = 44;
             this.dtpFromDate.TextColor = System.Drawing.Color.Black;
-            // 
-            // CustomerName
-            // 
             this.CustomerName.HeaderText = "Expense Type";
             this.CustomerName.MinimumWidth = 8;
             this.CustomerName.Name = "CustomerName";
             this.CustomerName.Width = 353;
-            // 
-            // ContactNo
-            // 
             this.ContactNo.HeaderText = "Date";
             this.ContactNo.MinimumWidth = 8;
             this.ContactNo.Name = "ContactNo";
             this.ContactNo.Width = 255;
-            // 
-            // Address
-            // 
             this.Address.HeaderText = "Total Amount";
             this.Address.MinimumWidth = 8;
             this.Address.Name = "Address";
             this.Address.Width = 250;
-            // 
-            // Description
-            // 
             this.Description.HeaderText = "Description";
             this.Description.MinimumWidth = 8;
             this.Description.Name = "Description";
             this.Description.Width = 350;
-            // 
-            // Expense
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;

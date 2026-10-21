@@ -47,7 +47,7 @@ namespace GP_Auto_Accounts
                     }
 
                     dgvUsers.AutoGenerateColumns = false;
-                    dgvUsers.DataSource = dt; // Make sure this matches your actual DataGridView name
+                    dgvUsers.DataSource = dt;
                 }
                 catch (Exception ex)
                 {
@@ -77,10 +77,8 @@ namespace GP_Auto_Accounts
         {
             signup dialog = new signup();
 
-            // Show the form as a dialog (modal)
             dialog.ShowDialog();
 
-            // Optionally, you can retrieve any values or inputs from the dialog form after it's closed.
 
 
             
@@ -96,16 +94,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             Profile profileForm = new Profile();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(profileForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(profileForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             profileForm.panel1.Dock = DockStyle.Top;
             profileForm.panel2.Dock = DockStyle.Fill;
         }

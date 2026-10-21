@@ -2,15 +2,8 @@
 {
     partial class Products
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -92,9 +81,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.kryptonGroupBox2);
             this.panel2.Controls.Add(this.kryptonGroupBox4);
@@ -102,14 +88,8 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1389, 842);
             this.panel2.TabIndex = 54;
-            // 
-            // kryptonGroupBox2
-            // 
             this.kryptonGroupBox2.CaptionStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonGroupBox2.Location = new System.Drawing.Point(63, 40);
-            // 
-            // kryptonGroupBox2.Panel
-            // 
             this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonButton13);
             this.kryptonGroupBox2.Panel.Controls.Add(this.btnAdd);
             this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonLabel8);
@@ -141,9 +121,6 @@
             this.kryptonGroupBox2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonGroupBox2.TabIndex = 9;
             this.kryptonGroupBox2.Values.Heading = "   Add Products";
-            // 
-            // kryptonButton13
-            // 
             this.kryptonButton13.Location = new System.Drawing.Point(1130, 136);
             this.kryptonButton13.Name = "kryptonButton13";
             this.kryptonButton13.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -204,9 +181,6 @@
             this.kryptonButton13.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton13.Values.Text = "Clear";
             this.kryptonButton13.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnAdd
-            // 
             this.btnAdd.Location = new System.Drawing.Point(1047, 136);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -267,9 +241,6 @@
             this.btnAdd.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnAdd.Values.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // kryptonLabel8
-            // 
             this.kryptonLabel8.Location = new System.Drawing.Point(544, 85);
             this.kryptonLabel8.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel8.Name = "kryptonLabel8";
@@ -278,9 +249,6 @@
             this.kryptonLabel8.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel8.TabIndex = 75;
             this.kryptonLabel8.Values.Text = "Description";
-            // 
-            // txtDescription
-            // 
             this.txtDescription.Location = new System.Drawing.Point(723, 92);
             this.txtDescription.MaximumSize = new System.Drawing.Size(256, 50);
             this.txtDescription.Multiline = true;
@@ -289,9 +257,6 @@
             this.txtDescription.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.txtDescription.StateCommon.Border.Width = 0;
             this.txtDescription.TabIndex = 74;
-            // 
-            // txtThresholdQty
-            // 
             this.txtThresholdQty.Location = new System.Drawing.Point(723, 48);
             this.txtThresholdQty.MaximumSize = new System.Drawing.Size(256, 25);
             this.txtThresholdQty.Name = "txtThresholdQty";
@@ -299,9 +264,6 @@
             this.txtThresholdQty.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.txtThresholdQty.StateCommon.Border.Width = 0;
             this.txtThresholdQty.TabIndex = 64;
-            // 
-            // kryptonButton20
-            // 
             this.kryptonButton20.Location = new System.Drawing.Point(920, 11);
             this.kryptonButton20.Name = "kryptonButton20";
             this.kryptonButton20.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -322,9 +284,6 @@
             this.kryptonButton20.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton20.Values.Image = global::GP_Auto_Accounts.Properties.Resources.plus_small__3_;
             this.kryptonButton20.Values.Text = "+";
-            // 
-            // comboBoxCategory
-            // 
             this.comboBoxCategory.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxCategory.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.comboBoxCategory.BorderSize = 0;
@@ -342,9 +301,6 @@
             this.comboBoxCategory.TabIndex = 61;
             this.comboBoxCategory.Texts = "";
             this.comboBoxCategory.OnSelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_OnSelectedIndexChanged);
-            // 
-            // kryptonLabel3
-            // 
             this.kryptonLabel3.Location = new System.Drawing.Point(544, 13);
             this.kryptonLabel3.MaximumSize = new System.Drawing.Size(140, 23);
             this.kryptonLabel3.Name = "kryptonLabel3";
@@ -353,9 +309,6 @@
             this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel3.TabIndex = 57;
             this.kryptonLabel3.Values.Text = "Product Category";
-            // 
-            // kryptonLabel11
-            // 
             this.kryptonLabel11.Location = new System.Drawing.Point(18, 83);
             this.kryptonLabel11.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel11.Name = "kryptonLabel11";
@@ -364,9 +317,6 @@
             this.kryptonLabel11.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel11.TabIndex = 54;
             this.kryptonLabel11.Values.Text = "Sale UnitPrice";
-            // 
-            // txtSaleUnitPrice
-            // 
             this.txtSaleUnitPrice.Location = new System.Drawing.Point(180, 83);
             this.txtSaleUnitPrice.MaximumSize = new System.Drawing.Size(256, 25);
             this.txtSaleUnitPrice.Name = "txtSaleUnitPrice";
@@ -374,9 +324,6 @@
             this.txtSaleUnitPrice.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.txtSaleUnitPrice.StateCommon.Border.Width = 0;
             this.txtSaleUnitPrice.TabIndex = 53;
-            // 
-            // kryptonLabel6
-            // 
             this.kryptonLabel6.Location = new System.Drawing.Point(544, 48);
             this.kryptonLabel6.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel6.MinimumSize = new System.Drawing.Size(160, 0);
@@ -386,9 +333,6 @@
             this.kryptonLabel6.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel6.TabIndex = 47;
             this.kryptonLabel6.Values.Text = "Threshold Quantity";
-            // 
-            // txtPurchaseUnitPrice
-            // 
             this.txtPurchaseUnitPrice.Location = new System.Drawing.Point(180, 119);
             this.txtPurchaseUnitPrice.MaximumSize = new System.Drawing.Size(256, 25);
             this.txtPurchaseUnitPrice.Name = "txtPurchaseUnitPrice";
@@ -396,9 +340,6 @@
             this.txtPurchaseUnitPrice.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.txtPurchaseUnitPrice.StateCommon.Border.Width = 0;
             this.txtPurchaseUnitPrice.TabIndex = 46;
-            // 
-            // kryptonLabel7
-            // 
             this.kryptonLabel7.Location = new System.Drawing.Point(18, 119);
             this.kryptonLabel7.MaximumSize = new System.Drawing.Size(140, 23);
             this.kryptonLabel7.Name = "kryptonLabel7";
@@ -407,9 +348,6 @@
             this.kryptonLabel7.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel7.TabIndex = 45;
             this.kryptonLabel7.Values.Text = "Purchase UnitPrice";
-            // 
-            // txtPartNumber
-            // 
             this.txtPartNumber.Location = new System.Drawing.Point(180, 48);
             this.txtPartNumber.MaximumSize = new System.Drawing.Size(256, 25);
             this.txtPartNumber.Name = "txtPartNumber";
@@ -417,9 +355,6 @@
             this.txtPartNumber.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.txtPartNumber.StateCommon.Border.Width = 0;
             this.txtPartNumber.TabIndex = 40;
-            // 
-            // kryptonLabel5
-            // 
             this.kryptonLabel5.Location = new System.Drawing.Point(18, 48);
             this.kryptonLabel5.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel5.Name = "kryptonLabel5";
@@ -428,9 +363,6 @@
             this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel5.TabIndex = 39;
             this.kryptonLabel5.Values.Text = "Part Number";
-            // 
-            // txtProductName
-            // 
             this.txtProductName.Location = new System.Drawing.Point(180, 12);
             this.txtProductName.MaximumSize = new System.Drawing.Size(256, 25);
             this.txtProductName.Name = "txtProductName";
@@ -438,9 +370,6 @@
             this.txtProductName.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.txtProductName.StateCommon.Border.Width = 0;
             this.txtProductName.TabIndex = 36;
-            // 
-            // kryptonLabel1
-            // 
             this.kryptonLabel1.Location = new System.Drawing.Point(18, 14);
             this.kryptonLabel1.MaximumSize = new System.Drawing.Size(140, 23);
             this.kryptonLabel1.Name = "kryptonLabel1";
@@ -449,9 +378,6 @@
             this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel1.TabIndex = 35;
             this.kryptonLabel1.Values.Text = "Product Name";
-            // 
-            // kryptonButton22
-            // 
             this.kryptonButton22.Location = new System.Drawing.Point(289, 360);
             this.kryptonButton22.Name = "kryptonButton22";
             this.kryptonButton22.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -511,14 +437,8 @@
             this.kryptonButton22.TabIndex = 32;
             this.kryptonButton22.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton22.Values.Text = "Clear";
-            // 
-            // kryptonGroupBox4
-            // 
             this.kryptonGroupBox4.CaptionStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonGroupBox4.Location = new System.Drawing.Point(63, 279);
-            // 
-            // kryptonGroupBox4.Panel
-            // 
             this.kryptonGroupBox4.Panel.Controls.Add(this.kryptonButton15);
             this.kryptonGroupBox4.Panel.Controls.Add(this.kryptonLabel2);
             this.kryptonGroupBox4.Panel.Controls.Add(this.comboBoxCategory1);
@@ -535,9 +455,6 @@
             this.kryptonGroupBox4.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.kryptonGroupBox4.TabIndex = 11;
             this.kryptonGroupBox4.Values.Heading = "   Products List";
-            // 
-            // kryptonButton15
-            // 
             this.kryptonButton15.Location = new System.Drawing.Point(378, 14);
             this.kryptonButton15.Name = "kryptonButton15";
             this.kryptonButton15.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -558,9 +475,6 @@
             this.kryptonButton15.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton15.Values.Image = global::GP_Auto_Accounts.Properties.Resources.plus_small__3_;
             this.kryptonButton15.Values.Text = "+";
-            // 
-            // kryptonLabel2
-            // 
             this.kryptonLabel2.Location = new System.Drawing.Point(18, 16);
             this.kryptonLabel2.MaximumSize = new System.Drawing.Size(150, 25);
             this.kryptonLabel2.Name = "kryptonLabel2";
@@ -569,9 +483,6 @@
             this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel2.TabIndex = 39;
             this.kryptonLabel2.Values.Text = "Product Category";
-            // 
-            // comboBoxCategory1
-            // 
             this.comboBoxCategory1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxCategory1.BorderColor = System.Drawing.Color.LightSteelBlue;
             this.comboBoxCategory1.BorderSize = 0;
@@ -587,9 +498,6 @@
             this.comboBoxCategory1.Size = new System.Drawing.Size(256, 25);
             this.comboBoxCategory1.TabIndex = 40;
             this.comboBoxCategory1.Texts = "";
-            // 
-            // dataGridView1
-            // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
@@ -628,9 +536,6 @@
             this.dataGridView1.TabIndex = 19;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // kryptonButton24
-            // 
             this.kryptonButton24.Location = new System.Drawing.Point(198, 360);
             this.kryptonButton24.Name = "kryptonButton24";
             this.kryptonButton24.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -690,9 +595,6 @@
             this.kryptonButton24.TabIndex = 23;
             this.kryptonButton24.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton24.Values.Text = "Add";
-            // 
-            // panel1
-            // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -703,9 +605,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1368, 88);
             this.panel1.TabIndex = 64;
-            // 
-            // kryptonButton11
-            // 
             this.kryptonButton11.Location = new System.Drawing.Point(1323, 14);
             this.kryptonButton11.Name = "kryptonButton11";
             this.kryptonButton11.OverrideDefault.Content.Padding = new System.Windows.Forms.Padding(0);
@@ -720,9 +619,6 @@
             this.kryptonButton11.Values.Image = global::GP_Auto_Accounts.Properties.Resources.okkkkkkk;
             this.kryptonButton11.Values.Text = "";
             this.kryptonButton11.Click += new System.EventHandler(this.kryptonButton11_Click);
-            // 
-            // kryptonButton9
-            // 
             this.kryptonButton9.Location = new System.Drawing.Point(1286, 14);
             this.kryptonButton9.Name = "kryptonButton9";
             this.kryptonButton9.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -740,9 +636,6 @@
             this.kryptonButton9.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton9.Values.Image = global::GP_Auto_Accounts.Properties.Resources.okkkk;
             this.kryptonButton9.Values.Text = "kryptonButton9";
-            // 
-            // kryptonButton8
-            // 
             this.kryptonButton8.Location = new System.Drawing.Point(43, 618);
             this.kryptonButton8.Name = "kryptonButton8";
             this.kryptonButton8.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -790,9 +683,6 @@
             this.kryptonButton8.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton8.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.settings;
             this.kryptonButton8.Values.Text = "   Settings";
-            // 
-            // kryptonButton7
-            // 
             this.kryptonButton7.Location = new System.Drawing.Point(43, 551);
             this.kryptonButton7.Name = "kryptonButton7";
             this.kryptonButton7.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -840,9 +730,6 @@
             this.kryptonButton7.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton7.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.big_data_analytics;
             this.kryptonButton7.Values.Text = "  Reports";
-            // 
-            // kryptonButton6
-            // 
             this.kryptonButton6.Location = new System.Drawing.Point(43, 484);
             this.kryptonButton6.Name = "kryptonButton6";
             this.kryptonButton6.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -890,9 +777,6 @@
             this.kryptonButton6.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton6.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.boxes;
             this.kryptonButton6.Values.Text = "   Products";
-            // 
-            // kryptonButton5
-            // 
             this.kryptonButton5.Location = new System.Drawing.Point(43, 419);
             this.kryptonButton5.Name = "kryptonButton5";
             this.kryptonButton5.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -940,9 +824,6 @@
             this.kryptonButton5.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton5.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.supplier__2_;
             this.kryptonButton5.Values.Text = "   Suppliers";
-            // 
-            // kryptonButton4
-            // 
             this.kryptonButton4.Location = new System.Drawing.Point(43, 350);
             this.kryptonButton4.Name = "kryptonButton4";
             this.kryptonButton4.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -990,9 +871,6 @@
             this.kryptonButton4.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton4.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.user_bag__1_;
             this.kryptonButton4.Values.Text = "     Customers";
-            // 
-            // kryptonButton3
-            // 
             this.kryptonButton3.Location = new System.Drawing.Point(43, 287);
             this.kryptonButton3.Name = "kryptonButton3";
             this.kryptonButton3.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -1040,9 +918,6 @@
             this.kryptonButton3.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton3.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.cart_arrow_down;
             this.kryptonButton3.Values.Text = "    Purchases";
-            // 
-            // kryptonButton2
-            // 
             this.kryptonButton2.Location = new System.Drawing.Point(43, 222);
             this.kryptonButton2.Name = "kryptonButton2";
             this.kryptonButton2.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -1081,9 +956,6 @@
             this.kryptonButton2.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton2.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.file_invoice_dollar__1_;
             this.kryptonButton2.Values.Text = " Invoices";
-            // 
-            // kryptonButton1
-            // 
             this.kryptonButton1.Location = new System.Drawing.Point(43, 157);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -1131,17 +1003,11 @@
             this.kryptonButton1.Values.ImageStates.ImageCheckedTracking = null;
             this.kryptonButton1.Values.ImageStates.ImageTracking = global::GP_Auto_Accounts.Properties.Resources.dashboard__1_;
             this.kryptonButton1.Values.Text = "     Dashboard";
-            // 
-            // panel3
-            // 
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Location = new System.Drawing.Point(292, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(4, 751);
             this.panel3.TabIndex = 65;
-            // 
-            // pictureBox1
-            // 
             this.pictureBox1.Image = global::GP_Auto_Accounts.Properties.Resources.light;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
@@ -1149,50 +1015,32 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 55;
             this.pictureBox1.TabStop = false;
-            // 
-            // ProductID
-            // 
             this.ProductID.DataPropertyName = "ProductID";
             this.ProductID.HeaderText = "ProductID";
             this.ProductID.MinimumWidth = 8;
             this.ProductID.Name = "ProductID";
             this.ProductID.Visible = false;
             this.ProductID.Width = 150;
-            // 
-            // ProductName
-            // 
             this.ProductName.DataPropertyName = "ProductName";
             this.ProductName.HeaderText = "Product Name";
             this.ProductName.MinimumWidth = 8;
             this.ProductName.Name = "ProductName";
             this.ProductName.Width = 200;
-            // 
-            // PartNumber
-            // 
             this.PartNumber.DataPropertyName = "ProductID";
             this.PartNumber.HeaderText = "Part No.";
             this.PartNumber.MinimumWidth = 8;
             this.PartNumber.Name = "PartNumber";
             this.PartNumber.Width = 150;
-            // 
-            // CategoryName
-            // 
             this.CategoryName.DataPropertyName = "CategoryName";
             this.CategoryName.HeaderText = "Category";
             this.CategoryName.MinimumWidth = 8;
             this.CategoryName.Name = "CategoryName";
             this.CategoryName.Width = 180;
-            // 
-            // Quantity
-            // 
             this.Quantity.DataPropertyName = "Quantity";
             this.Quantity.HeaderText = "Stock Qty";
             this.Quantity.MinimumWidth = 8;
             this.Quantity.Name = "Quantity";
             this.Quantity.Width = 85;
-            // 
-            // ThresholdQty
-            // 
             this.ThresholdQty.DataPropertyName = "ThresholdQty";
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ThresholdQty.DefaultCellStyle = dataGridViewCellStyle1;
@@ -1200,40 +1048,25 @@
             this.ThresholdQty.MinimumWidth = 8;
             this.ThresholdQty.Name = "ThresholdQty";
             this.ThresholdQty.Width = 90;
-            // 
-            // SaleUnitPrice
-            // 
             this.SaleUnitPrice.DataPropertyName = "SaleUnitPrice";
             this.SaleUnitPrice.HeaderText = "Sale Unit Price";
             this.SaleUnitPrice.MinimumWidth = 8;
             this.SaleUnitPrice.Name = "SaleUnitPrice";
             this.SaleUnitPrice.Width = 110;
-            // 
-            // PurchaseUnitPrice
-            // 
             this.PurchaseUnitPrice.DataPropertyName = "PurchaseUnitPrice";
             this.PurchaseUnitPrice.HeaderText = "Purchase Unit Price";
             this.PurchaseUnitPrice.MinimumWidth = 8;
             this.PurchaseUnitPrice.Name = "PurchaseUnitPrice";
             this.PurchaseUnitPrice.Width = 110;
-            // 
-            // Description
-            // 
             this.Description.DataPropertyName = "Description";
             this.Description.HeaderText = "Description";
             this.Description.MinimumWidth = 8;
             this.Description.Name = "Description";
             this.Description.Width = 200;
-            // 
-            // DeleteColumn
-            // 
             this.DeleteColumn.HeaderText = "Delete";
             this.DeleteColumn.MinimumWidth = 8;
             this.DeleteColumn.Name = "DeleteColumn";
             this.DeleteColumn.Width = 80;
-            // 
-            // Products
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;

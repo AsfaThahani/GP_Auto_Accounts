@@ -29,7 +29,6 @@ namespace GP_Auto_Accounts
         public salesReport()
         {
             InitializeComponent();
-            //to make the datagrid visible accordingly
             kryptonDataGridView1.Visible = false;
             kryptonDataGridView2.Visible = true;
 
@@ -56,11 +55,9 @@ namespace GP_Auto_Accounts
                 case 0:
 
                     {
-                        //to make the datagrid visible accordingly
                         kryptonDataGridView2.Visible = true;
                         kryptonDataGridView1.Visible = false;
 
-                        //filling rjcmbbox 2 when customers is selected 
                         rjComboBox2.Texts = "";
                         rjComboBox2.Items.Clear();
 
@@ -86,11 +83,9 @@ namespace GP_Auto_Accounts
                 case 1:
 
                     {
-                        //to make the datagrid visible accordingly
                         kryptonDataGridView1.Visible = true;
                         kryptonDataGridView2.Visible = false;
 
-                        //filling rjcmbbox 2 when customers is selected 
                         rjComboBox2.Texts = "";
                         rjComboBox2.Items.Clear();
 
@@ -156,7 +151,6 @@ namespace GP_Auto_Accounts
 
 
 
-                // Get invoices
                 SqlCommand invoiceCmd = new SqlCommand(query2, conn);
 
                 invoiceCmd.Parameters.AddWithValue("@StartDate", startDate);
@@ -178,7 +172,6 @@ namespace GP_Auto_Accounts
 
                 conn.Close();
             }
-            //filling the text boxes below as the customer is selected 
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -224,7 +217,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -271,7 +263,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -317,7 +308,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ////////////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -445,9 +435,7 @@ namespace GP_Auto_Accounts
                                     WHERE                                         
                                         ip.PaymentDate BETWEEN @StartDate AND @EndDate";
 
-                //rcpu is rough cost per unit
 
-                // Get invoices
                 SqlCommand Cmd = new SqlCommand(query2, conn);
 
 
@@ -520,7 +508,6 @@ namespace GP_Auto_Accounts
                 conn1.Close();
             }
             
-            ///////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -566,7 +553,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -612,7 +598,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ////////////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -726,7 +711,6 @@ namespace GP_Auto_Accounts
             {
                 conn.Open();
 
-                // Get CustomerID
                 customerName = rjComboBox2.SelectedItem.ToString();
                 using (SqlCommand cmd = new SqlCommand("SELECT CustomerID FROM Customer WHERE CustomerName = @name", conn))
                 {
@@ -740,7 +724,6 @@ namespace GP_Auto_Accounts
                     customerID = Convert.ToInt32(result);
                 }
 
-                // Load invoice data to DataGridView
                 string invoiceQuery = @"
                         SELECT 
                             c.CustomerName,
@@ -773,7 +756,6 @@ namespace GP_Auto_Accounts
                     kryptonDataGridView2.Refresh();
                 }
 
-                // Combine all SUM queries into one
                 string summaryQuery = @"
                             SELECT 
                                 SUM(i.SubTotal) AS SubTotalSum,
@@ -803,7 +785,6 @@ namespace GP_Auto_Accounts
                     }
                 }
 
-                // Assign values to UI
                 kryptonTextBox5.Text = subTotalSum.ToString("N2");
                 kryptonTextBox1.Text = totalDiscount.ToString("N2");
                 kryptonTextBox2.Text = grandTotal.ToString("N2");
@@ -826,7 +807,6 @@ namespace GP_Auto_Accounts
             {
                 conn.Open();
 
-                // Step 1: Get Product ID
                 using (SqlCommand getProductCmd = new SqlCommand("SELECT ProductID FROM Product WHERE ProductName = @ProductName", conn))
                 {
                     getProductCmd.Parameters.AddWithValue("@ProductName", productName);
@@ -841,7 +821,6 @@ namespace GP_Auto_Accounts
                     productID = Convert.ToInt32(result);
                 }
 
-                // Step 2: Load Invoice Details for Product
                 string detailQuery = @"
             SELECT 
                 i.InvoiceID,
@@ -885,7 +864,6 @@ namespace GP_Auto_Accounts
                     kryptonDataGridView1.Refresh();
                 }
 
-                // Step 3: Get Summary Data in One Query
                 string summaryQuery = @"
             SELECT 
                 SUM(i.SubTotal) AS SubTotalSum,
@@ -916,7 +894,6 @@ namespace GP_Auto_Accounts
                     }
                 }
 
-                // Step 4: Display results
                 kryptonTextBox5.Text = subTotal.ToString("N2");
                 kryptonTextBox1.Text = discount.ToString("N2");
                 kryptonTextBox2.Text = grandTotal.ToString("N2");
@@ -1020,7 +997,6 @@ namespace GP_Auto_Accounts
 
             try
             {
-                // Load customer info from DB
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -1063,12 +1039,10 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Column keys and display headers
                 string[] columnKeys = { "InvoiceID", "total", "Discount", "NetAmount", "AmountPaid", "OutstandingAmount", "Date" };
                 string[] displayHeaders = { "PO ID", "Gross Total", "Discount", "Net Amount", "Paid", "Outstanding", "Purchase Date" };
                 float[] colWidths = { 2f, 2.5f, 2.5f, 2.5f, 2.5f, 3f, 3f };
 
-                // Verify all columns exist
                 foreach (string col in columnKeys)
                 {
                     if (!yourDataGridView.Columns.Contains(col))
@@ -1078,12 +1052,10 @@ namespace GP_Auto_Accounts
                     }
                 }
 
-                // Start PDF document
                 Document doc = new Document(PageSize.A4, 20f, 20f, 20f, 20f);
                 PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
                 doc.Open();
 
-                // Add logo if exists
                 string logoPath = @"C:\Fonts\logo.png";
                 if (File.Exists(logoPath))
                 {
@@ -1093,7 +1065,6 @@ namespace GP_Auto_Accounts
                     doc.Add(logo);
                 }
 
-                // Load custom fonts
                 string afacadBoldPath = @"C:\Fonts\AfacadFlux-Bold.ttf";
                 string afacadThinPath = @"C:\Fonts\AfacadFlux-Regular.ttf";
                 string bahnschriftPath = @"C:\Fonts\BS_Static_Bold.ttf";
@@ -1113,19 +1084,16 @@ namespace GP_Auto_Accounts
                 iTextSharp.text.Font fontSummaryLabel = new iTextSharp.text.Font(arialBold, 8);
                 iTextSharp.text.Font fontSummaryValue = new iTextSharp.text.Font(arialNormal, 8);
 
-                // Company info
                 Paragraph address = new Paragraph("99/1, Quarry Road, Dehiwala, Colombo | 9477-1199991 | 9477-8916404", fontText);
                 address.Alignment = Element.ALIGN_CENTER;
                 doc.Add(address);
                 doc.Add(new Paragraph(" "));
 
-                // Title
                 Paragraph title = new Paragraph("SUPPLIER PURCHASE STATEMENT", fontTitle);
                 title.Alignment = Element.ALIGN_CENTER;
                 title.SpacingAfter = 10f;
                 doc.Add(title);
 
-                // Supplier Info Header
                 PdfPTable headerTable = new PdfPTable(2)
                 {
                     WidthPercentage = 100
@@ -1147,7 +1115,6 @@ namespace GP_Auto_Accounts
                 doc.Add(headerTable);
                 doc.Add(new Paragraph(" "));
 
-                // Create table for data with split rows enabled for multiple pages
                 PdfPTable table = new PdfPTable(columnKeys.Length)
                 {
                     WidthPercentage = 100,
@@ -1155,7 +1122,6 @@ namespace GP_Auto_Accounts
                 };
                 table.SetWidths(colWidths);
 
-                // Add headers
                 for (int i = 0; i < displayHeaders.Length; i++)
                 {
                     PdfPCell cell = new PdfPCell(new Phrase(displayHeaders[i], fontTableHeader))
@@ -1168,7 +1134,6 @@ namespace GP_Auto_Accounts
                     table.AddCell(cell);
                 }
 
-                // Add rows
                 foreach (DataGridViewRow row in yourDataGridView.Rows)
                 {
                     if (!row.IsNewRow)
@@ -1191,7 +1156,7 @@ namespace GP_Auto_Accounts
                             {
                                 if (decimal.TryParse(value.ToString(), out decimal num))
                                 {
-                                    text = num.ToString("N2"); // Format with commas + 2 decimals
+                                    text = num.ToString("N2");
                                 }
                                 else
                                 {
@@ -1214,14 +1179,11 @@ namespace GP_Auto_Accounts
                     }
                 }
 
-                // Add the table to document after all rows added
                 doc.Add(table);
 
-                // Add a horizontal line separator
                 doc.Add(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.5f, 100f, BaseColor.BLACK, Element.ALIGN_CENTER, 0f)));
                 doc.Add(new Paragraph(" "));
 
-                // Format summary values (assuming TryFormatRupees is a helper that formats currency strings)
                 string grossTotal = TryFormatRupees(kryptonTextBox5.Text);
                 string TotalDiscount = TryFormatRupees(kryptonTextBox1.Text);
                 string GrandTotal = TryFormatRupees(kryptonTextBox2.Text);
@@ -1249,7 +1211,6 @@ namespace GP_Auto_Accounts
 
                 doc.Add(summaryTable);
 
-                // Footer
                 doc.Add(new Paragraph(" "));
                 doc.Add(new Paragraph("Thank you for your business!", fontLabel)
                 {
@@ -1271,16 +1232,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             purchaseReport invoiceForm = new purchaseReport();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
 
@@ -1294,16 +1251,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             salesReport invoiceForm = new salesReport();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
         }
@@ -1341,7 +1294,6 @@ namespace GP_Auto_Accounts
 
             public override void OnEndPage(PdfWriter writer, Document document)
             {
-                // Add footer with page number
                 var cb = writer.DirectContent;
                 cb.BeginText();
                 BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
@@ -1352,7 +1304,6 @@ namespace GP_Auto_Accounts
                 cb.ShowTextAligned(Element.ALIGN_CENTER, text, x, y, 0);
                 cb.EndText();
 
-                // Add header table at top of each page
                 headerTable.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
                 headerTable.WriteSelectedRows(0, -1, document.LeftMargin, document.PageSize.Height - 10, cb);
             }
@@ -1368,7 +1319,6 @@ namespace GP_Auto_Accounts
 
             try
             {
-                // Load product info from DB
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -1415,19 +1365,16 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Define columns and headers
                 string[] columnKeys = { "I_ID", "UnitPrice", "Quantity", "GrossTotal", "TotalDiscount", "GrandTotal", "PaymentAmount", "Outstanding_Amount", "CreatedAt" };
                 string[] displayHeaders = { "inv. ID", "Unit Price", "Quantity", "Gross Total", "Discount", "Net Total", "Paid", "Outstanding", "Date" };
                 float[] colWidths = { 1.2f, 2.1f, 1.5f, 2.3f, 2.2f, 2f, 2.3f, 2.5f, 2f };
 
-                // Start PDF document and writer
                 Document doc = new Document(PageSize.A4, 20f, 20f, 20f, 20f);
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
 
                
                 doc.Open();
 
-                // Add logo
                 string logoPath = @"C:\Fonts\logo.png";
                 if (File.Exists(logoPath))
                 {
@@ -1437,7 +1384,6 @@ namespace GP_Auto_Accounts
                     doc.Add(logo);
                 }
 
-                // Load fonts
                 string afacadBoldPath = @"C:\Fonts\AfacadFlux-Bold.ttf";
                 string afacadThinPath = @"C:\Fonts\AfacadFlux-Regular.ttf";
                 string bahnschriftPath = @"C:\Fonts\BS_Static_Bold.ttf";
@@ -1457,13 +1403,11 @@ namespace GP_Auto_Accounts
                 iTextSharp.text.Font fontSummaryLabel = new iTextSharp.text.Font(arialBold, 8);
                 iTextSharp.text.Font fontSummaryValue = new iTextSharp.text.Font(arialNormal, 8);
 
-                // Company info
                 Paragraph address = new Paragraph("99/1, Quarry Road, Dehiwala, Colombo | 9477-1199991 | 9477-8916404", fontText);
                 address.Alignment = Element.ALIGN_CENTER;
                 doc.Add(address);
                 doc.Add(new Paragraph(" "));
 
-                // Title
                 Paragraph title = new Paragraph("PRODUCT PURCHASE STATEMENT", fontTitle)
                 {
                     Alignment = Element.ALIGN_CENTER,
@@ -1471,7 +1415,6 @@ namespace GP_Auto_Accounts
                 };
                 doc.Add(title);
 
-                // Product details table (header)
                 PdfPTable headerTable = new PdfPTable(2)
                 {
                     WidthPercentage = 100
@@ -1493,15 +1436,13 @@ namespace GP_Auto_Accounts
                 doc.Add(headerTable);
                 doc.Add(new Paragraph(" "));
 
-                // Data table
                 PdfPTable table = new PdfPTable(columnKeys.Length)
                 {
                     WidthPercentage = 100,
-                    SplitRows = true // important for multi-page tables
+                    SplitRows = true
                 };
                 table.SetWidths(colWidths);
 
-                // Add headers — page event also adds them, but keep here for first page
                 for (int i = 0; i < displayHeaders.Length; i++)
                 {
                     PdfPCell cell = new PdfPCell(new Phrase(displayHeaders[i], fontTableHeader))
@@ -1514,7 +1455,6 @@ namespace GP_Auto_Accounts
                     table.AddCell(cell);
                 }
 
-                // Add data rows
                 foreach (DataGridViewRow row in yourDataGridView.Rows)
                 {
                     if (!row.IsNewRow)
@@ -1533,7 +1473,7 @@ namespace GP_Auto_Accounts
                             {
                                 if (decimal.TryParse(value.ToString(), out decimal num))
                                 {
-                                    text = num.ToString("N2"); // format with commas and 2 decimals
+                                    text = num.ToString("N2");
                                 }
                                 else
                                 {
@@ -1558,18 +1498,15 @@ namespace GP_Auto_Accounts
 
                 doc.Add(table);
 
-                // Add line separator
                 doc.Add(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.5f, 100f, BaseColor.BLACK, Element.ALIGN_CENTER, 0f)));
                 doc.Add(new Paragraph(" "));
 
-                // Format summary values — assuming you have this method to format currency strings
                 string grossTotal = TryFormatRupees(kryptonTextBox5.Text);
                 string totalDiscount = TryFormatRupees(kryptonTextBox1.Text);
                 string grandTotal = TryFormatRupees(kryptonTextBox2.Text);
                 string amountPaid = TryFormatRupees(kryptonTextBox3.Text);
                 string outstandingAmount = TryFormatRupees(kryptonTextBox4.Text);
 
-                // Summary table
                 PdfPTable summaryTable = new PdfPTable(2)
                 {
                     WidthPercentage = 50,
@@ -1591,7 +1528,6 @@ namespace GP_Auto_Accounts
 
                 doc.Add(summaryTable);
 
-                // Footer message
                 doc.Add(new Paragraph(" "));
                
                 doc.Close();
@@ -1615,11 +1551,11 @@ namespace GP_Auto_Accounts
         {
             if (decimal.TryParse(input, out decimal amount))
             {
-                return "Rs. " + amount.ToString("N2");  // Format: Rs. 1,234.56
+                return "Rs. " + amount.ToString("N2");
             }
             else
             {
-                return input;  // Return original if not numeric
+                return input;
             }
         }
 
@@ -1647,7 +1583,7 @@ namespace GP_Auto_Accounts
                 string formattedDate = now.ToString("yyyyMMdd_HHmmss");
                 string filePath = @"C:\reports\";
 
-                Directory.CreateDirectory(filePath); // Ensure folder exists
+                Directory.CreateDirectory(filePath);
 
                 if (rjComboBox1.SelectedItem == "Customers")
                 {
@@ -1675,7 +1611,6 @@ namespace GP_Auto_Accounts
 
 
 
-                // Reset ComboBox
             }
             catch (Exception ex)
             {
@@ -1690,7 +1625,6 @@ namespace GP_Auto_Accounts
         }
     }
 }
-//
 
 
 

@@ -171,7 +171,6 @@ namespace GP_Auto_Accounts
                                         pp.CreatedAt BETWEEN @StartDate AND @EndDate";
 
 
-                // Get invoices
                 SqlCommand invoiceCmd = new SqlCommand(query2, conn);
 
 
@@ -239,7 +238,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -279,7 +277,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -319,7 +316,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ////////////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -436,9 +432,7 @@ namespace GP_Auto_Accounts
                                         
                                         pp.CreatedAt BETWEEN @StartDate AND @EndDate";
 
-                //rcpu is rough cost per unit
 
-                // Get invoices
                 SqlCommand invoiceCmd = new SqlCommand(query2, conn);
 
 
@@ -512,7 +506,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -558,7 +551,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -604,7 +596,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ////////////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -706,7 +697,6 @@ namespace GP_Auto_Accounts
 
             try
             {
-                // Load supplier info from DB
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -755,7 +745,6 @@ namespace GP_Auto_Accounts
                     reader.Close();
                 }
 
-                // Start PDF creation
                 Document doc = new Document(PageSize.A4, 20f, 20f, 20f, 20f);
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
 
@@ -770,7 +759,6 @@ namespace GP_Auto_Accounts
                     doc.Add(logo);
                 }
 
-                // Load custom fonts
                 string afacadBoldPath = @"C:\Fonts\AfacadFlux-Bold.ttf";
                 string afacadThinPath = @"C:\Fonts\AfacadFlux-Regular.ttf";
                 string bahnschriftPath = @"C:\Fonts\BS_Static_Bold.ttf";
@@ -790,22 +778,18 @@ namespace GP_Auto_Accounts
                 iTextSharp.text.Font fontTableData = new iTextSharp.text.Font(arialNormal, 8);
                 iTextSharp.text.Font fontSummaryLabel = new iTextSharp.text.Font(arialBold, 8);
                 iTextSharp.text.Font fontSummaryValue = new iTextSharp.text.Font(arialNormal, 8);
-                // Add logo
 
 
-                // Company info
                 Paragraph address = new Paragraph("99/1, Quarry Road, Dehiwala, Colombo | 9477-1199991 | 9477-8916404", fontText);
                 address.Alignment = Element.ALIGN_CENTER;
                 doc.Add(address);
                 doc.Add(new Paragraph(" "));
 
-                // Title
                 Paragraph title = new Paragraph("PRODUCT PURCHASE STATEMENT", fontTitle);
                 title.Alignment = Element.ALIGN_CENTER;
                 title.SpacingAfter = 10f;
                 doc.Add(title);
 
-                // Supplier Info Header
                 PdfPTable headerTable = new PdfPTable(2);
                 headerTable.WidthPercentage = 100;
                 headerTable.SetWidths(new float[] { 3f, 2f });
@@ -825,11 +809,8 @@ namespace GP_Auto_Accounts
                 doc.Add(headerTable);
                 doc.Add(new Paragraph(" "));
 
-                // Table headers
-                // These are the keys used to match DataGridView column names
                 string[] columnKeys = { "PO_ID", "UnitPrice", "Quantity", "GrossTotal", "TotalDiscount", "GrandTotal", "PaymentAmount", "Outstanding_Amount", "CreatedAt" };
 
-                // These are the display names you want to show in the PDF
                 string[] displayHeaders = { "PO ID", "Unit Price", "QTY", "Gross Total", "Discount", "Net Total", "Paid", "Outstanding", "Date" };
                 float[] colWidths = { 1.2f, 2.1f, 1.5f, 2.3f, 2.2f, 2f, 2.3f, 2.5f, 2f };
 
@@ -837,7 +818,6 @@ namespace GP_Auto_Accounts
                 table.WidthPercentage = 100;
                 table.SetWidths(colWidths);
 
-                // Table headers (your existing code)
                 for (int i = 0; i < displayHeaders.Length; i++)
                 {
                     PdfPCell cell = new PdfPCell(new Phrase(displayHeaders[i], fontTableHeader))
@@ -853,7 +833,6 @@ namespace GP_Auto_Accounts
 
 
 
-                // Add data rows (fixed)
                 foreach (DataGridViewRow row in yourDataGridView.Rows)
                 {
                     if (!row.IsNewRow)
@@ -867,12 +846,10 @@ namespace GP_Auto_Accounts
                                 object value = row.Cells[colName].Value ?? "";
                                 string text = "";
 
-                                // Format dates
                                 if (colName == "CreatedAt" && DateTime.TryParse(value.ToString(), out DateTime dt))
                                 {
                                     text = dt.ToString("dd/MM/yyyy");
                                 }
-                                // Format numbers with commas for currency-like columns
                                 else if (
                                     colName == "UnitPrice" ||
                                     colName == "GrossTotal" ||
@@ -884,16 +861,16 @@ namespace GP_Auto_Accounts
                                 {
                                     if (decimal.TryParse(value.ToString(), out decimal num))
                                     {
-                                        text = num.ToString("N2"); // N2 = comma + 2 decimals
+                                        text = num.ToString("N2");
                                     }
                                     else
                                     {
-                                        text = value.ToString(); // fallback if parsing fails
+                                        text = value.ToString();
                                     }
                                 }
                                 else
                                 {
-                                    text = value.ToString(); // normal text
+                                    text = value.ToString();
                                 }
 
                                 PdfPCell dataCell = new PdfPCell(new Phrase(text, fontTableData))
@@ -921,7 +898,6 @@ namespace GP_Auto_Accounts
 
                     doc.Add(table);
 
-                    // Add horizontal line before summary section
                     doc.Add(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.5f, 100f, BaseColor.BLACK, Element.ALIGN_CENTER, 0f)));
                     doc.Add(new Paragraph(" "));
 
@@ -933,18 +909,15 @@ namespace GP_Auto_Accounts
                     string OutstandingAMount = TryFormatRupees(kryptonTextBox4.Text);
 
 
-                    // Create document and writer
                     PdfPTable summaryTable = new PdfPTable(2);
                     summaryTable.WidthPercentage = 50;
                     summaryTable.HorizontalAlignment = Element.ALIGN_RIGHT;
                     summaryTable.SetWidths(new float[] { 2f, 1f });
 
-                    // Add summary rows with Arial Bold for labels and Arial Regular for values
                     AddSummaryRow(summaryTable, "Gross Total:   ", grossTotal, fontSummaryLabel, fontSummaryValue);
                     AddSummaryRow(summaryTable, "Total Discount:", TotalDiscount, fontSummaryLabel, fontSummaryValue);
                     AddSummaryRow(summaryTable, "Grand Total:   ", GrandTotal, fontSummaryLabel, fontSummaryValue);
 
-                    // Get payment information
 
 
                     AddSummaryRow(summaryTable, "Amount Paid:    ", AmountPaid, fontSummaryLabel, fontSummaryValue);
@@ -952,7 +925,6 @@ namespace GP_Auto_Accounts
 
                     doc.Add(summaryTable);
 
-                    // Add footer
                     doc.Add(new Paragraph(" "));
                     doc.Add(new Paragraph("Thank you for your business!", fontLabel)
                     {
@@ -978,7 +950,6 @@ namespace GP_Auto_Accounts
         private void filldgv4Supplier(string SupplierName)
         {
 
-            //declaring variables 
 
             int SupplierID;
             Decimal Sum;
@@ -987,13 +958,12 @@ namespace GP_Auto_Accounts
 
 
 
-            //retieving the supplier iD 
 
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT SupplierID FROM Supplier WHERE SupplierName = @SupplierName", conn);//to fetch the productID
+                SqlCommand cmd = new SqlCommand("SELECT SupplierID FROM Supplier WHERE SupplierName = @SupplierName", conn);
                 cmd.Parameters.AddWithValue("@SupplierName", SupplierName);
 
                 object SupplierIDObj = cmd.ExecuteScalar();
@@ -1008,9 +978,7 @@ namespace GP_Auto_Accounts
                 }
 
 
-                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                //filling the datagrid views in purchase page
 
 
                 string query2 = @"
@@ -1036,7 +1004,6 @@ namespace GP_Auto_Accounts
                                            pp.CreatedAt BETWEEN @StartDate AND @EndDate";
 
 
-                // Get invoices
                 SqlCommand invoiceCmd = new SqlCommand(query2, conn);
 
                 invoiceCmd.Parameters.AddWithValue("@Sid", SupplierID);
@@ -1105,7 +1072,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -1147,7 +1113,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -1188,7 +1153,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ////////////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -1286,7 +1250,7 @@ namespace GP_Auto_Accounts
             {
 
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT ProductID FROM Product WHERE ProductName = @ProductName", conn);//to fetch the productID
+                SqlCommand cmd = new SqlCommand("SELECT ProductID FROM Product WHERE ProductName = @ProductName", conn);
                 cmd.Parameters.AddWithValue("@ProductName", ProductName);
 
                 object productIDObj = cmd.ExecuteScalar();
@@ -1330,9 +1294,7 @@ namespace GP_Auto_Accounts
                                     AND
                                         pp.CreatedAt BETWEEN @StartDate AND @EndDate";
 
-                //rcpu is rough cost per unit
 
-                // Get invoices
                 SqlCommand PurchaseCmd = new SqlCommand(query2, conn);
 
 
@@ -1408,7 +1370,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -1456,7 +1417,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ///////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -1504,7 +1464,6 @@ namespace GP_Auto_Accounts
 
                 conn1.Close();
             }
-            ////////////////////////////////////////////////////////////////////////////////////////
             using (SqlConnection conn1 = new SqlConnection(connectionString))
             {
                 conn1.Open();
@@ -1612,7 +1571,6 @@ namespace GP_Auto_Accounts
 
             try
             {
-                // Load supplier info from DB
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -1661,7 +1619,6 @@ namespace GP_Auto_Accounts
                     reader.Close();
                 }
 
-                // Start PDF creation
                 Document doc = new Document(PageSize.A4, 20f, 20f, 20f, 20f);
                 PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
                 doc.Open();
@@ -1675,7 +1632,6 @@ namespace GP_Auto_Accounts
                     doc.Add(logo);
                 }
 
-                // Load custom fonts
                 string afacadBoldPath = @"C:\Fonts\AfacadFlux-Bold.ttf";
                 string afacadThinPath = @"C:\Fonts\AfacadFlux-Regular.ttf";
                 string bahnschriftPath = @"C:\Fonts\BS_Static_Bold.ttf";
@@ -1696,22 +1652,18 @@ namespace GP_Auto_Accounts
                 iTextSharp.text.Font fontSummaryLabel = new iTextSharp.text.Font(arialBold, 8);
                 iTextSharp.text.Font fontSummaryValue = new iTextSharp.text.Font(arialNormal, 8);
 
-                // Add logo
 
 
-                // Company info
                 Paragraph address = new Paragraph("99/1, Quarry Road, Dehiwala, Colombo | 9477-1199991 | 9477-8916404", fontText);
                 address.Alignment = Element.ALIGN_CENTER;
                 doc.Add(address);
                 doc.Add(new Paragraph(" "));
 
-                // Title
                 Paragraph title = new Paragraph("SUPPLIER PURCHASE STATEMENT", fontTitle);
                 title.Alignment = Element.ALIGN_CENTER;
                 title.SpacingAfter = 10f;
                 doc.Add(title);
 
-                // Supplier Info Header
                 PdfPTable headerTable = new PdfPTable(2);
                 headerTable.WidthPercentage = 100;
                 headerTable.SetWidths(new float[] { 3f, 2f });
@@ -1731,11 +1683,8 @@ namespace GP_Auto_Accounts
                 doc.Add(headerTable);
                 doc.Add(new Paragraph(" "));
 
-                // Table headers
-                // 1. Define the actual DataGridView column keys (internal)
                 string[] columnKeys = { "POID", "Gross_Total", "Discount", "NetAmount", "AmountPaid", "OutstandingAmount", "Date" };
 
-                // 2. Define the display headers (what user sees in the PDF)
                 string[] displayHeaders = { "PO ID", "Gross Total", "Discount", "Net Amount", "Paid", "Outstanding", "Purchase Date" };
                 float[] colWidths = {  2f, 2.5f, 2.5f, 2.5f, 2.5f, 3f, 3f };
 
@@ -1743,7 +1692,6 @@ namespace GP_Auto_Accounts
                 table.WidthPercentage = 100;
                 table.SetWidths(colWidths);
 
-                // Table headers (your existing code)
                 for (int i = 0; i < displayHeaders.Length; i++)
                 {
                     PdfPCell cell = new PdfPCell(new Phrase(displayHeaders[i], fontTableHeader))
@@ -1757,7 +1705,6 @@ namespace GP_Auto_Accounts
                 }
 
 
-                // Add data rows (fixed)
                 foreach (DataGridViewRow row in yourDataGridView.Rows)
                 {
                     if (!row.IsNewRow)
@@ -1771,12 +1718,10 @@ namespace GP_Auto_Accounts
                                 object value = row.Cells[colName].Value ?? "";
                                 string text = "";
 
-                                // Format dates
                                 if (colName == "Date" && DateTime.TryParse(value.ToString(), out DateTime dt))
                                 {
                                     text = dt.ToString("dd/MM/yyyy");
                                 }
-                                // Format numbers with commas for currency-like columns
                                 else if (
                                     
                                     colName == "Gross_Total" ||
@@ -1788,16 +1733,16 @@ namespace GP_Auto_Accounts
                                 {
                                     if (decimal.TryParse(value.ToString(), out decimal num))
                                     {
-                                        text = num.ToString("N2"); // N2 = comma + 2 decimals
+                                        text = num.ToString("N2");
                                     }
                                     else
                                     {
-                                        text = value.ToString(); // fallback if parsing fails
+                                        text = value.ToString();
                                     }
                                 }
                                 else
                                 {
-                                    text = value.ToString(); // normal text
+                                    text = value.ToString();
                                 }
 
                                 PdfPCell dataCell = new PdfPCell(new Phrase(text, fontTableData))
@@ -1836,18 +1781,15 @@ namespace GP_Auto_Accounts
 
 
 
-                // Create document and writer
                 PdfPTable summaryTable = new PdfPTable(2);
                 summaryTable.WidthPercentage = 50;
                 summaryTable.HorizontalAlignment = Element.ALIGN_RIGHT;
                 summaryTable.SetWidths(new float[] { 2f, 1f });
 
-                // Add summary rows with Arial Bold for labels and Arial Regular for values
                 AddSummaryRow(summaryTable, "Gross Total:   ", grossTotal, fontSummaryLabel, fontSummaryValue);
                 AddSummaryRow(summaryTable, "Total Discount:", TotalDiscount, fontSummaryLabel, fontSummaryValue);
                 AddSummaryRow(summaryTable, "Grand Total:   ", GrandTotal, fontSummaryLabel, fontSummaryValue);
 
-                // Get payment information
 
 
                 AddSummaryRow(summaryTable, "Amount Paid:    ", AmountPaid, fontSummaryLabel, fontSummaryValue);
@@ -1855,7 +1797,6 @@ namespace GP_Auto_Accounts
 
                 doc.Add(summaryTable);
 
-                // Add footer
                 doc.Add(new Paragraph(" "));
                 doc.Add(new Paragraph("Thank you for your business!", fontLabel)
                 {
@@ -1903,13 +1844,10 @@ namespace GP_Auto_Accounts
                 {
                     if (SummaryTable == null) return;
 
-                    // Set width of summary table to fit page width minus margins
                     SummaryTable.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
 
-                    // Y position for footer: just above the bottom margin (adjust the +10 to move up/down)
                     float yPos = document.BottomMargin + SummaryTable.TotalHeight + 10;
 
-                    // Write the summary table at the fixed position on the page
                     SummaryTable.WriteSelectedRows(0, -1, document.LeftMargin, yPos, writer.DirectContent);
                 }
         }
@@ -1984,11 +1922,11 @@ namespace GP_Auto_Accounts
         {
             if (decimal.TryParse(input, out decimal amount))
             {
-                return "Rs. " + amount.ToString("N2");  // Format: Rs. 1,234.56
+                return "Rs. " + amount.ToString("N2");
             }
             else
             {
-                return input;  // Return original if not numeric
+                return input;
             }
         }
 
@@ -2019,44 +1957,34 @@ namespace GP_Auto_Accounts
         }
         private void LockDataGridView1()
         {
-            // 1. Prevent editing
             kryptonDataGridView1.ReadOnly = true;
 
-            // 2. Disable adding/deleting rows
             kryptonDataGridView1.AllowUserToAddRows = false;
             kryptonDataGridView1.AllowUserToDeleteRows = false;
 
-            // 3. Disable row resizing (optional)
             kryptonDataGridView1.AllowUserToResizeRows = false;
 
-            // 4. Optional: Hide selection highlight (make it look like a report)
             kryptonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             kryptonDataGridView1.DefaultCellStyle.SelectionBackColor = kryptonDataGridView1.DefaultCellStyle.BackColor;
             kryptonDataGridView1.DefaultCellStyle.SelectionForeColor = kryptonDataGridView1.DefaultCellStyle.ForeColor;
 
-            // 5. Optional: Disable row headers interaction visuals
             kryptonDataGridView1.RowHeadersVisible = false;
             kryptonDataGridView1.EnableHeadersVisualStyles = false;
         }
 
         private void LockDataGridView3()
         {
-            // 1. Prevent editing
             kryptonDataGridView3.ReadOnly = true;
 
-            // 2. Disable adding/deleting rows
             kryptonDataGridView3.AllowUserToAddRows = false;
             kryptonDataGridView3.AllowUserToDeleteRows = false;
 
-            // 3. Disable row resizing (optional)
             kryptonDataGridView3.AllowUserToResizeRows = false;
 
-            // 4. Optional: Hide selection highlight (make it look like a report)
             kryptonDataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             kryptonDataGridView3.DefaultCellStyle.SelectionBackColor = kryptonDataGridView3.DefaultCellStyle.BackColor;
             kryptonDataGridView3.DefaultCellStyle.SelectionForeColor = kryptonDataGridView3.DefaultCellStyle.ForeColor;
 
-            // 5. Optional: Disable row headers interaction visuals
             kryptonDataGridView3.RowHeadersVisible = false;
             kryptonDataGridView3.EnableHeadersVisualStyles = false;
         }

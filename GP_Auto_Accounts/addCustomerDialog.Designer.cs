@@ -2,15 +2,8 @@
 {
     partial class addCustomerDialog
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
@@ -44,9 +33,6 @@
             this.btnAdd = new Krypton.Toolkit.KryptonButton();
             this.btnCancel = new Krypton.Toolkit.KryptonButton();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -55,9 +41,6 @@
             this.label1.Size = new System.Drawing.Size(140, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Customer Details";
-            // 
-            // txtVehicleNo
-            // 
             this.txtVehicleNo.Location = new System.Drawing.Point(196, 171);
             this.txtVehicleNo.MaximumSize = new System.Drawing.Size(182, 25);
             this.txtVehicleNo.Name = "txtVehicleNo";
@@ -65,9 +48,6 @@
             this.txtVehicleNo.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtVehicleNo.StateCommon.Border.Width = 0;
             this.txtVehicleNo.TabIndex = 90;
-            // 
-            // txtChassisNo
-            // 
             this.txtChassisNo.Location = new System.Drawing.Point(196, 202);
             this.txtChassisNo.MaximumSize = new System.Drawing.Size(182, 25);
             this.txtChassisNo.Name = "txtChassisNo";
@@ -75,9 +55,6 @@
             this.txtChassisNo.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtChassisNo.StateCommon.Border.Width = 0;
             this.txtChassisNo.TabIndex = 89;
-            // 
-            // kryptonLabel6
-            // 
             this.kryptonLabel6.Location = new System.Drawing.Point(34, 200);
             this.kryptonLabel6.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel6.Name = "kryptonLabel6";
@@ -86,9 +63,6 @@
             this.kryptonLabel6.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel6.TabIndex = 88;
             this.kryptonLabel6.Values.Text = "Chassis No.";
-            // 
-            // txtAddress
-            // 
             this.txtAddress.Location = new System.Drawing.Point(196, 140);
             this.txtAddress.MaximumSize = new System.Drawing.Size(182, 25);
             this.txtAddress.Name = "txtAddress";
@@ -96,9 +70,6 @@
             this.txtAddress.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtAddress.StateCommon.Border.Width = 0;
             this.txtAddress.TabIndex = 87;
-            // 
-            // kryptonLabel5
-            // 
             this.kryptonLabel5.Location = new System.Drawing.Point(34, 142);
             this.kryptonLabel5.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel5.Name = "kryptonLabel5";
@@ -107,9 +78,6 @@
             this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel5.TabIndex = 86;
             this.kryptonLabel5.Values.Text = "Address";
-            // 
-            // kryptonLabel4
-            // 
             this.kryptonLabel4.Location = new System.Drawing.Point(34, 229);
             this.kryptonLabel4.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel4.Name = "kryptonLabel4";
@@ -118,9 +86,6 @@
             this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel4.TabIndex = 85;
             this.kryptonLabel4.Values.Text = "Description";
-            // 
-            // txtDescription
-            // 
             this.txtDescription.Location = new System.Drawing.Point(196, 233);
             this.txtDescription.MaximumSize = new System.Drawing.Size(182, 45);
             this.txtDescription.Multiline = true;
@@ -129,9 +94,6 @@
             this.txtDescription.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtDescription.StateCommon.Border.Width = 0;
             this.txtDescription.TabIndex = 84;
-            // 
-            // kryptonLabel11
-            // 
             this.kryptonLabel11.Location = new System.Drawing.Point(34, 171);
             this.kryptonLabel11.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel11.Name = "kryptonLabel11";
@@ -140,9 +102,6 @@
             this.kryptonLabel11.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel11.TabIndex = 83;
             this.kryptonLabel11.Values.Text = "Vehicle No.";
-            // 
-            // txtContactNo
-            // 
             this.txtContactNo.Location = new System.Drawing.Point(196, 109);
             this.txtContactNo.MaximumSize = new System.Drawing.Size(182, 25);
             this.txtContactNo.Name = "txtContactNo";
@@ -150,9 +109,6 @@
             this.txtContactNo.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtContactNo.StateCommon.Border.Width = 0;
             this.txtContactNo.TabIndex = 82;
-            // 
-            // kryptonLabel1
-            // 
             this.kryptonLabel1.Location = new System.Drawing.Point(34, 111);
             this.kryptonLabel1.MaximumSize = new System.Drawing.Size(110, 25);
             this.kryptonLabel1.Name = "kryptonLabel1";
@@ -161,9 +117,6 @@
             this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel1.TabIndex = 81;
             this.kryptonLabel1.Values.Text = "Contact No.";
-            // 
-            // txtCustomerName
-            // 
             this.txtCustomerName.Location = new System.Drawing.Point(196, 80);
             this.txtCustomerName.MaximumSize = new System.Drawing.Size(182, 25);
             this.txtCustomerName.Name = "txtCustomerName";
@@ -171,9 +124,6 @@
             this.txtCustomerName.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtCustomerName.StateCommon.Border.Width = 0;
             this.txtCustomerName.TabIndex = 80;
-            // 
-            // kryptonLabel2
-            // 
             this.kryptonLabel2.Location = new System.Drawing.Point(34, 82);
             this.kryptonLabel2.MaximumSize = new System.Drawing.Size(140, 23);
             this.kryptonLabel2.Name = "kryptonLabel2";
@@ -182,9 +132,6 @@
             this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel2.TabIndex = 79;
             this.kryptonLabel2.Values.Text = "Customer Name";
-            // 
-            // btnAdd
-            // 
             this.btnAdd.Location = new System.Drawing.Point(218, 308);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -245,9 +192,6 @@
             this.btnAdd.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnAdd.Values.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnCancel
-            // 
             this.btnCancel.Location = new System.Drawing.Point(301, 308);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -308,9 +252,6 @@
             this.btnCancel.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnCancel.Values.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // addCustomerDialog
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));

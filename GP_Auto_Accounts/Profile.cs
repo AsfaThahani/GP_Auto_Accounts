@@ -101,7 +101,6 @@ namespace GP_Auto_Accounts
 
             byte[] passwordBytes = null;
 
-            // Password update logic
             if (!string.IsNullOrEmpty(newPassword))
             {
                 if (newPassword != confirmPassword)
@@ -123,13 +122,11 @@ namespace GP_Auto_Accounts
 
                 if (passwordBytes != null)
                 {
-                    // Update with new password
                     cmd = new SqlCommand("UPDATE UserAccount SET FullName = @FullName, Email = @Email, ContactNo = @ContactNo, UserType = @UserType, Password = @Password WHERE Username = @Username", con);
                     cmd.Parameters.AddWithValue("@Password", passwordBytes);
                 }
                 else
                 {
-                    // Update without changing password
                     cmd = new SqlCommand("UPDATE UserAccount SET FullName = @FullName, Email = @Email, ContactNo = @ContactNo, UserType = @UserType WHERE Username = @Username", con);
                 }
 
@@ -144,7 +141,7 @@ namespace GP_Auto_Accounts
                 if (result > 0)
                 {
                     MessageBox.Show("User profile updated successfully.");
-                    ClearFormFields(); // 👈 clear after success
+                    ClearFormFields();
                 }
                 else
                 {

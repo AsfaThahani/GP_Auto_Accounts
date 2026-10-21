@@ -12,14 +12,13 @@ namespace GP_Auto_Accounts
     public partial class Suppliers : Form
     {
         private object previousCellValue = null;
-        private bool isUpdating = false; // Flag to prevent reentrant events
+        private bool isUpdating = false;
         string connectionString = "Server=.\\SQLEXPRESS;Database=AMS;Integrated Security=True;";
 
         public Suppliers()
         {
             InitializeComponent();
 
-            // Event subscriptions
             SupplierTable.CellBeginEdit += SupplierTable_CellBeginEdit;
             SupplierTable.CellEndEdit += SupplierTable_CellEndEdit;
             SupplierTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
@@ -33,7 +32,6 @@ namespace GP_Auto_Accounts
             SupplierTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             SupplierTable.AutoGenerateColumns = false;
 
-            // Hide ID column if needed
             if (SupplierTable.Columns.Count > 0)
                 SupplierTable.Columns[0].Visible = false;
 
@@ -52,7 +50,6 @@ namespace GP_Auto_Accounts
         {
             try
             {
-                // Store currently selected supplier ID
                 int selectedSupplierID = 0;
                 if (cmbSupplier.SelectedItem is SupplierItem selected)
                 {
@@ -69,7 +66,6 @@ namespace GP_Auto_Accounts
 
                     cmbSupplier.Items.Clear();
 
-                    // Add "All Suppliers" option
                     cmbSupplier.Items.Add(new SupplierItem { SupplierID = 0, SupplierName = "All Suppliers" });
 
                     while (reader.Read())
@@ -85,7 +81,6 @@ namespace GP_Auto_Accounts
                     reader.Close();
                 }
 
-                // Restore previous selection if possible
                 if (selectedSupplierID != 0)
                 {
                     foreach (SupplierItem item in cmbSupplier.Items)
@@ -96,12 +91,10 @@ namespace GP_Auto_Accounts
                             return;
                         }
                     }
-                    // If previous selection not found, fallback to "All Suppliers"
                     cmbSupplier.SelectedIndex = 0;
                 }
                 else
                 {
-                    // If no previous selection, select "All Suppliers" by default
                     cmbSupplier.SelectedIndex = 0;
                 }
             }
@@ -119,12 +112,10 @@ namespace GP_Auto_Accounts
             {
                 if (selectedSupplier.SupplierID == 0)
                 {
-                    // Show all suppliers
                     FillSupplierTable();
                 }
                 else
                 {
-                    // Show only selected supplier details
                     FilterSupplierByID(selectedSupplier.SupplierID);
                 }
             }
@@ -182,18 +173,17 @@ namespace GP_Auto_Accounts
 
         private void SupplierTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (isUpdating) return;  // Prevent recursion
+            if (isUpdating) return;
             if (e.RowIndex < 0) return;
 
             var row = SupplierTable.Rows[e.RowIndex];
             var currentValue = row.Cells[e.ColumnIndex].Value;
 
-            // If value didn't change, skip update
             if ((previousCellValue == null && currentValue == null) ||
                 (previousCellValue != null && previousCellValue.Equals(currentValue)))
             {
-                previousCellValue = null;  // reset for next edit
-                return; // No change detected, so don't prompt or update
+                previousCellValue = null;
+                return;
             }
 
             try
@@ -207,7 +197,6 @@ namespace GP_Auto_Accounts
                 string address = row.Cells["Address"].Value?.ToString().Trim() ?? "";
                 string description = row.Cells["Description"].Value?.ToString().Trim() ?? "";
 
-                // Validation for SupplierName
                 if (columnName == "SupplierName" && !Regex.IsMatch(supplierName, @"^[a-zA-Z0-9\s]+$"))
                 {
                     MessageBox.Show("Supplier Name must contain only letters, numbers, and spaces.");
@@ -215,7 +204,6 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Validation for ContactNo
                 if (columnName == "ContactNo" && !contactNo.All(char.IsDigit))
                 {
                     MessageBox.Show("Contact Number must contain digits only.");
@@ -223,7 +211,6 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Confirm update prompt
                 var confirm = MessageBox.Show("Confirm update to this supplier?", "Update Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm != DialogResult.Yes)
                 {
@@ -231,7 +218,6 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Parse SupplierID
                 if (!int.TryParse(row.Cells["SupplierID"].Value?.ToString(), out int supplierID))
                 {
                     MessageBox.Show("Invalid SupplierID, cannot update.");
@@ -239,12 +225,10 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Update supplier in database and get success status
                 bool updateSuccess = UpdateSupplierInline(supplierID, supplierName, contactNo, address, description);
 
                 if (updateSuccess)
                 {
-                    // Immediately update the Updated_By cell for this row
                     row.Cells["Updated_By"].Value = AppContext.CurrentUser?.FullName ?? "Unknown";
                     MessageBox.Show("Supplier updated successfully.");
                     LoadSupplierNames();
@@ -306,14 +290,12 @@ namespace GP_Auto_Accounts
 
         private void kryptonButton14_Click(object sender, EventArgs e)
         {
-            // Add new supplier from textboxes
             string supplierName = txtSupplierName.Text.Trim();
             string contactNo = txtContactNo.Text.Trim();
             string address = txtAddress.Text.Trim();
             string description = txtDescription.Text.Trim();
             string updatedBy = AppContext.CurrentUser?.FullName ?? "Unknown";
 
-            // Validation
             if (string.IsNullOrWhiteSpace(supplierName) || string.IsNullOrWhiteSpace(contactNo))
             {
                 MessageBox.Show("Fields Supplier Name and Contact No can't be empty.");
@@ -384,7 +366,6 @@ namespace GP_Auto_Accounts
                 string address = txtAddress.Text.Trim();
                 string description = txtDescription.Text.Trim();
 
-                // Validate
                 if (!Regex.IsMatch(supplierName, @"^[a-zA-Z0-9\s]+$"))
                 {
                     MessageBox.Show("Supplier Name must contain only letters, numbers, and spaces.");
@@ -473,7 +454,6 @@ namespace GP_Auto_Accounts
 
                         SupplierTable.DataSource = dt;
 
-                        // Hide ID column, reorder columns, etc. but DO NOT reset sizing here
                         if (SupplierTable.Columns.Count > 0)
                             SupplierTable.Columns["SupplierID"].Visible = false;
 
@@ -529,10 +509,8 @@ namespace GP_Auto_Accounts
 
         private void SupplierTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Check if clicked column is the Delete button column and valid row
             if (e.ColumnIndex == SupplierTable.Columns["DeleteColumn"].Index && e.RowIndex >= 0)
             {
-                // Get SupplierID from the clicked row
                 var supplierIDValue = SupplierTable.Rows[e.RowIndex].Cells["SupplierID"].Value;
                 if (supplierIDValue == null || !int.TryParse(supplierIDValue.ToString(), out int supplierID))
                 {
@@ -540,16 +518,13 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Confirm deletion
                 var confirm = MessageBox.Show("Are you sure you want to delete this supplier?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm != DialogResult.Yes)
                     return;
 
-                // Call method to delete supplier from DB
                 DeleteSupplier(supplierID);
 
-                // Reload supplier names in ComboBox and the DataGridView
-                LoadSupplierNames();  // <-- Add this to refresh ComboBox
+                LoadSupplierNames();
                 FillSupplierTable();
             }
         }

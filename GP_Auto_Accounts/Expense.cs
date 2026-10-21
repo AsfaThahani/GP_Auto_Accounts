@@ -20,7 +20,6 @@ namespace GP_Auto_Accounts
             LoadAllExpenses();
         }
 
-        // Helper class for categories
         private class CategoryItem
         {
             public int CategoryID { get; set; }
@@ -44,11 +43,9 @@ namespace GP_Auto_Accounts
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    // Clear both combo boxes
                     rjComboBox1.Items.Clear();
                     cmbExp.Items.Clear();
 
-                    // Add "-- All Categories --" to filter combo
                     cmbExp.Items.Add(new CategoryItem { CategoryID = 0, CategoryName = "-- All Categories --" });
                     cmbExp.SelectedIndex = 0;
 
@@ -60,8 +57,8 @@ namespace GP_Auto_Accounts
                             CategoryName = reader["CategoryName"].ToString()
                         };
 
-                        rjComboBox1.Items.Add(item); // Entry form combo
-                        cmbExp.Items.Add(item);      // Filter combo
+                        rjComboBox1.Items.Add(item);
+                        cmbExp.Items.Add(item);
                     }
 
                     reader.Close();
@@ -158,11 +155,11 @@ namespace GP_Auto_Accounts
             {
                 if (selectedItem.CategoryID == 0)
                 {
-                    LoadAllExpenses(); // Show all
+                    LoadAllExpenses();
                 }
                 else
                 {
-                    LoadExpensesByCategory(selectedItem.CategoryID); // Filter
+                    LoadExpensesByCategory(selectedItem.CategoryID);
                 }
             }
         }
@@ -180,7 +177,7 @@ namespace GP_Auto_Accounts
             string description = txtDescription.Text.Trim();
             string amountText = txtAmount.Text.Trim();
             DateTime createdAt = dtpExpenseDate.Value;
-            int createdBy = 1; // Replace with actual user
+            int createdBy = 1;
 
             if (string.IsNullOrEmpty(amountText))
             {
@@ -214,9 +211,8 @@ namespace GP_Auto_Accounts
                 }
 
                 MessageBox.Show("Expense saved successfully.");
-                LoadAllExpenses(); // Refresh after insert
+                LoadAllExpenses();
 
-                // Clear inputs
                 rjComboBox1.SelectedIndex = -1;
                 txtAmount.Clear();
                 txtDescription.Clear();
@@ -232,7 +228,7 @@ namespace GP_Auto_Accounts
         {
             addExpenseDialog dialog = new addExpenseDialog();
             dialog.ShowDialog();
-            LoadExpenseNames(); // Refresh category combos after dialog
+            LoadExpenseNames();
         }
     }
 }

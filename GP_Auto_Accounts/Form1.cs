@@ -39,7 +39,6 @@ namespace GP_Auto_Accounts
         {
             if (currentActiveButton != null && currentActiveButton != clickedButton)
             {
-                // Reset previous button style
                 currentActiveButton.StateCommon.Back.Color1 = Color.Transparent;
                 currentActiveButton.StateCommon.Back.Color2 = Color.Transparent;
                 currentActiveButton.OverrideDefault.Back.Color1 = Color.Transparent;
@@ -47,7 +46,6 @@ namespace GP_Auto_Accounts
                 currentActiveButton.StateCommon.Content.ShortText.Color1 = Color.FromArgb(0, 0, 192);
             }
 
-            // Apply active styles to the clicked button
             clickedButton.StateCommon.Back.Color1 = Color.DeepSkyBlue;
             clickedButton.StateCommon.Back.Color2 = Color.FromArgb(0, 0, 192);
             clickedButton.StateCommon.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
@@ -112,7 +110,7 @@ namespace GP_Auto_Accounts
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                chartPurchases.Series.Clear(); // chartPurchases is your Chart control for purchases
+                chartPurchases.Series.Clear();
                 chartPurchases.ChartAreas[0].AxisX.Title = "Month";
                 chartPurchases.ChartAreas[0].AxisY.Title = "Purchases (Rs)";
                 chartPurchases.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
@@ -154,8 +152,8 @@ namespace GP_Auto_Accounts
 
                 Series series = new Series("Expenses");
                 series.ChartType = SeriesChartType.Pie;
-                series["PieLabelStyle"] = "Outside"; // Optional: label outside pie
-                series.BorderColor = Color.Black;    // Optional: borders
+                series["PieLabelStyle"] = "Outside";
+                series.BorderColor = Color.Black;
 
                 foreach (DataRow row in dt.Rows)
                 {
@@ -174,7 +172,6 @@ namespace GP_Auto_Accounts
 
 
 
-        // Event handler for button clicks
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
             SetActiveKryptonButton(kryptonButton1);
@@ -182,16 +179,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             Form1 dashboard = new Form1();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(dashboard.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(dashboard.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             dashboard.panel1.Dock = DockStyle.Top;
             dashboard.panel2.Dock = DockStyle.Fill;
         }
@@ -202,20 +195,15 @@ namespace GP_Auto_Accounts
         private void kryptonButton2_Click(object sender, EventArgs e)
         {
             SetActiveKryptonButton((KryptonButton)sender);
-            // Clear the panels in the MainForm to ensure they are empty
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             Invoice invoiceForm = new Invoice();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
 
@@ -362,18 +350,14 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             salesReport salesReportForm = new salesReport();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
 
 
             panel1.Controls.Add(salesReportForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(salesReportForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             salesReportForm.panel1.Dock = DockStyle.Top;
             salesReportForm.panel2.Dock = DockStyle.Fill;
         }

@@ -23,26 +23,21 @@ namespace GP_Auto_Accounts
             InitializeComponent();
             LoadCustomerNames();
             LoadAllInvoicePayments();
-            // Configure the DataGridView before loading data
             invoiceDetailsTable.AutoGenerateColumns = false;
             invoiceDetailsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             invoiceDetailsTable.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
             invoiceDetailsTable.DefaultCellStyle.SelectionForeColor = Color.Black;
             invoiceDetailsTable.DataError += invoiceDetailsTable_DataError;
-            // Add this event handler
             invoiceDetailsTable.DataBindingComplete += InvoiceDetailsTable_DataBindingComplete;
 
-            // Load data after configuration
             LoadAllInvoicePayments();
 
             ComboBoxCustomer.OnSelectedIndexChanged += ComboBoxCustomer_OnSelectedIndexChanged;
 
-            // Make sure txtInvoice is non-editable
             txtInvoice.ReadOnly = true;
         }
         private void InvoiceDetailsTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            // This ensures no rows are selected after data binding completes
             invoiceDetailsTable.ClearSelection();
 
 
@@ -63,16 +58,14 @@ namespace GP_Auto_Accounts
             dtpFromDate.Value = DateTime.Today.AddMonths(-1);
             dtpToDate.Value = DateTime.Today;
 
-            // Set "Show All" customer
             ComboBoxCustomer.SelectedIndex = 0;
 
-            // This will now use the same query logic for all cases
             LoadFilteredInvoices();
         }
 
         private void invoiceDetailsTable_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            e.Cancel = true; // Suppress the error
+            e.Cancel = true;
         }
 
         private void LoadFilteredInvoices()
@@ -229,7 +222,6 @@ namespace GP_Auto_Accounts
                     SqlDataReader reader = cmd.ExecuteReader();
                     ComboBoxCustomer.Items.Clear();
 
-                    // Add "Show All" as first option
                     ComboBoxCustomer.Items.Add(new CustomerItem
                     {
                         CustomerID = -1,
@@ -247,7 +239,7 @@ namespace GP_Auto_Accounts
                     }
 
                     reader.Close();
-                    ComboBoxCustomer.SelectedIndex = 0; // default to Show All
+                    ComboBoxCustomer.SelectedIndex = 0;
 
                 }
                 catch (Exception ex)
@@ -259,7 +251,7 @@ namespace GP_Auto_Accounts
 
         private void InvoiceDetails_Load(object sender, EventArgs e)
         {
-            dtpFromDate.Value = DateTime.Today.AddMonths(-1); // example: set default range
+            dtpFromDate.Value = DateTime.Today.AddMonths(-1);
             dtpToDate.Value = DateTime.Today;
         }
 
@@ -273,13 +265,11 @@ namespace GP_Auto_Accounts
 
                 txtInvoice.Text = row.Cells["InvoiceID"].Value?.ToString() ?? "";
 
-                // Show the outstanding amount to help user know how much they can pay
                 if (row.Cells["OutstandingAmount"].Value != null)
                 {
                     decimal outstanding = Convert.ToDecimal(row.Cells["OutstandingAmount"].Value);
                     txtOutstandingAmount.Text = outstanding.ToString("N2");
 
-                    // Optional: Set the payment textbox to the full outstanding amount by default
                     txtPay.Text = outstanding.ToString("N2");
                 }
             }
@@ -296,14 +286,12 @@ namespace GP_Auto_Accounts
                 {
                     if (!row.IsNewRow)
                     {
-                        // Safely get values with null checks
                         decimal rowTotal = row.Cells["TotalAmount"].Value != null ?
                             Convert.ToDecimal(row.Cells["TotalAmount"].Value) : 0;
 
                         decimal rowPaid = row.Cells["PaymentAmount"].Value != null ?
                             Convert.ToDecimal(row.Cells["PaymentAmount"].Value) : 0;
 
-                        // Use the value from grid (already calculated in SQL)
                         decimal rowOutstanding = row.Cells["OutstandingAmount"].Value != null ?
                             Convert.ToDecimal(row.Cells["OutstandingAmount"].Value) : 0;
 
@@ -335,23 +323,18 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             All_Invoices invoiceForm = new All_Invoices();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
         }
 
         private void kryptonButton4_Click(object sender, EventArgs e)
         {
-            // Your existing button click handler
         }
 
         private void kryptonButton11_Click(object sender, EventArgs e)
@@ -361,27 +344,21 @@ namespace GP_Auto_Accounts
 
         private void kryptonButton12_Click(object sender, EventArgs e)
         {
-            // Clear the panels in the MainForm to ensure they are empty
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             Invoice invoiceForm = new Invoice();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
         }
 
         private void rjComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            // Your existing combobox handler
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -398,7 +375,6 @@ namespace GP_Auto_Accounts
         {
             try
             {
-                // 0. Validate user is logged in
                 if (AppContext.CurrentUser == null)
                 {
                     MessageBox.Show("Please login before recording payments.",
@@ -408,7 +384,6 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // 1. Validate Invoice Selection
                 if (invoiceDetailsTable.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("Please select an invoice first by clicking on a row.",
@@ -418,11 +393,9 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Get InvoiceID from selected row
                 int invoiceId = Convert.ToInt32(invoiceDetailsTable.SelectedRows[0].Cells["InvoiceID"].Value);
 
-                // 2. Validate Payment Amount
-                string paymentText = txtPay.Text.Replace(",", ""); // Remove commas for parsing
+                string paymentText = txtPay.Text.Replace(",", "");
                 if (string.IsNullOrWhiteSpace(paymentText))
                 {
                     MessageBox.Show("Please enter a payment amount.",
@@ -455,7 +428,6 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // 3. Validate Outstanding Amount
                 string outstandingText = txtOutstandingAmount.Text.Replace(",", "");
                 if (string.IsNullOrWhiteSpace(outstandingText) ||
                     !decimal.TryParse(outstandingText, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal outstandingAmount))
@@ -479,7 +451,6 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // 4. Database Operation
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -487,7 +458,6 @@ namespace GP_Auto_Accounts
                     {
                         try
                         {
-                            // Insert payment record
                             string insertPaymentQuery = @"
                     INSERT INTO InvoicePayment 
                         (Invoice_ID, PaymentAmount, PaymentDate, Updated_By)
@@ -510,10 +480,8 @@ namespace GP_Auto_Accounts
 
                             transaction.Commit();
 
-                            // Refresh the data grid
                             LoadFilteredInvoices();
 
-                            // Clear and reset UI
                             txtPay.Text = "";
                             txtPay.Focus();
                             invoiceDetailsTable.ClearSelection();

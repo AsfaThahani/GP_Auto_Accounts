@@ -39,14 +39,12 @@ namespace GP_Auto_Accounts
             string chassisNo = txtChassisNo.Text.Trim();
             string description = txtDescription.Text.Trim();
 
-            // Validate input (optional but recommended)
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(contact) || string.IsNullOrEmpty(vehicleNo))
             {
                 MessageBox.Show("Customer name, phone number, and vehicle number are required.");
                 return;
             }
 
-            // Connection string (update with your own DB info)
             string connectionString = "Server=.\\SQLEXPRESS;Database=AMS;Integrated Security=True;";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -71,7 +69,7 @@ namespace GP_Auto_Accounts
                     if (rows > 0)
                     {
                         MessageBox.Show("Customer added successfully.");
-                        this.Close(); // or clear fields
+                        this.Close();
                     }
                     else
                     {

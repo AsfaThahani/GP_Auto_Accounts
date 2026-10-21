@@ -142,7 +142,6 @@ namespace GP_Auto_Accounts
                     SqlDataReader reader = cmd.ExecuteReader();
                     rjComboBox1.Items.Clear();
 
-                    // Add "Show All" as first option
                     rjComboBox1.Items.Add(new CustomerItem
                     {
                         CustomerID = -1,
@@ -160,7 +159,7 @@ namespace GP_Auto_Accounts
                     }
 
                     reader.Close();
-                    rjComboBox1.SelectedIndex = 0; // default to Show All
+                    rjComboBox1.SelectedIndex = 0;
 
                 }
                 catch (Exception ex)
@@ -175,7 +174,6 @@ namespace GP_Auto_Accounts
         {
             signup signupForm = new signup();
 
-            // Show the form
             signupForm.Show();
         }
 
@@ -185,16 +183,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             InvoicePayment invoiceForm = new InvoicePayment();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
         }
@@ -209,16 +203,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             NewPurchase purchaseForm = new NewPurchase();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(purchaseForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(purchaseForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             purchaseForm.panel1.Dock = DockStyle.Top;
             purchaseForm.panel2.Dock = DockStyle.Fill;
         }
@@ -230,20 +220,15 @@ namespace GP_Auto_Accounts
 
         private void kryptonButton12_Click(object sender, EventArgs e)
         {
-            // Clear the panels in the MainForm to ensure they are empty
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             Invoice invoiceForm = new Invoice();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
         }
@@ -260,7 +245,6 @@ namespace GP_Auto_Accounts
      
             invoiceDetails dialog = new invoiceDetails();
 
-            // Show the form as a dialog (modal)
             dialog.ShowDialog();
 
         }

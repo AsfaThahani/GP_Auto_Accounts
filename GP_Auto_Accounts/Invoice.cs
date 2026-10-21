@@ -68,11 +68,11 @@ namespace GP_Auto_Accounts
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        txtPartNo.Text = reader["ProductID"].ToString();        // Part number
-                        txtThresholdQty.Text = reader["ThresholdQty"].ToString(); // Unit price
-                        txtAvailableQty.Text = reader["Quantity"].ToString();   // Available stock
-                        txtSaleUnitPrice.Text = reader["SaleUnitPrice"].ToString();   // Available stock
-                        txtPurchaseUnitPrice.Text = reader["PurchaseUnitPrice"].ToString();   // Available stock
+                        txtPartNo.Text = reader["ProductID"].ToString();
+                        txtThresholdQty.Text = reader["ThresholdQty"].ToString();
+                        txtAvailableQty.Text = reader["Quantity"].ToString();
+                        txtSaleUnitPrice.Text = reader["SaleUnitPrice"].ToString();
+                        txtPurchaseUnitPrice.Text = reader["PurchaseUnitPrice"].ToString();
                     }
                     else
                     {
@@ -112,7 +112,6 @@ namespace GP_Auto_Accounts
         {
             signup signupForm = new signup();
 
-            // Show the form
             signupForm.Show();
         }
 
@@ -121,16 +120,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             InvoicePayment invoiceForm = new InvoicePayment();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(invoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(invoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             invoiceForm.panel1.Dock = DockStyle.Top;
             invoiceForm.panel2.Dock = DockStyle.Fill;
         }
@@ -212,7 +207,6 @@ namespace GP_Auto_Accounts
 
         private void LoadServices()
         {
-            // Clear existing data
             rjComboBox3.Items.Clear();
 
             string connectionString = "Data Source=DESKTOP-KKN421P\\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True";
@@ -231,8 +225,6 @@ namespace GP_Auto_Accounts
                 reader.Close();
             }
 
-            // Don't auto-select anything
-            // rjComboBox3.SelectedIndex = 0;
         }
 
 
@@ -247,7 +239,6 @@ namespace GP_Auto_Accounts
 
         private void CalculateItemTotalAndFinalAmount()
         {
-            // Step 1: Get Quantity
             if (!int.TryParse(txtQuantity.Text.Trim(), out int qty))
             {
                 txtItemTotal.Text = "0.00";
@@ -255,12 +246,10 @@ namespace GP_Auto_Accounts
                 return;
             }
 
-            // Step 2: Determine which unit price to use
             double unitPrice = 0;
 
             if (rdoServices.Checked)
             {
-                // Use Service Fee
                 if (!double.TryParse(txtServiceFee.Text.Trim(), out unitPrice))
                 {
                     txtItemTotal.Text = "0.00";
@@ -270,7 +259,6 @@ namespace GP_Auto_Accounts
             }
             else
             {
-                // Use Sale Unit Price
                 if (!double.TryParse(txtSaleUnitPrice.Text.Trim(), out unitPrice))
                 {
                     txtItemTotal.Text = "0.00";
@@ -279,28 +267,23 @@ namespace GP_Auto_Accounts
                 }
             }
 
-            // Step 3: Calculate item total (qty × unitPrice)
             double itemTotal = qty * unitPrice;
             txtItemTotal.Text = itemTotal.ToString("F2");
 
-            // Step 4: Get Discount (optional)
             double discount = 0;
             if (!string.IsNullOrWhiteSpace(txtDiscount.Text))
             {
                 double.TryParse(txtDiscount.Text.Replace("%", "").Trim(), out discount);
             }
 
-            // Step 5: Apply discount
             double discountAmount = itemTotal * (discount / 100.0);
             double finalAmount = itemTotal - discountAmount;
 
-            // Optional: prevent negative total
             if (finalAmount < 0)
             {
                 finalAmount = 0;
             }
 
-            // Step 6: Update final amount
             txtAmount.Text = finalAmount.ToString("F2");
         }
 
@@ -363,16 +346,12 @@ namespace GP_Auto_Accounts
             panel1.Controls.Clear();
             panel2.Controls.Clear();
 
-            // Create an instance of the InvoiceForm
             All_Invoices allinvoiceForm = new All_Invoices();
 
-            // Access panel1 from InvoiceForm and add it to panel1 in MainForm
             panel1.Controls.Add(allinvoiceForm.panel1);
 
-            // Access panel2 from InvoiceForm and add it to panel2 in MainForm
             panel2.Controls.Add(allinvoiceForm.panel2);
 
-            // Optionally, make sure the controls from InvoiceForm are correctly docked or sized within the MainForm panels
             allinvoiceForm.panel1.Dock = DockStyle.Top;
             allinvoiceForm.panel2.Dock = DockStyle.Fill;
         }
@@ -422,13 +401,10 @@ namespace GP_Auto_Accounts
 
             addCustomerDialog dialog = new addCustomerDialog();
 
-            // Show the form as a dialog (modal)
             dialog.ShowDialog();
 
-            // Optionally, you can retrieve any values or inputs from the dialog form after it's closed.
 
 
-            // Do something with the result, like updating the UI
             LoadCustomerNames();
         }
 
@@ -436,13 +412,10 @@ namespace GP_Auto_Accounts
         {
             addCategoryDialog dialog = new addCategoryDialog();
 
-            // Show the form as a dialog (modal)
             dialog.ShowDialog();
 
-            // Optionally, you can retrieve any values or inputs from the dialog form after it's closed.
 
 
-            // Do something with the result, like updating the UI
             LoadCategoryNames();
         }
         private void kryptonButton21_Click(object sender, EventArgs e)
@@ -454,7 +427,7 @@ namespace GP_Auto_Accounts
 
         if (result == DialogResult.OK)
         {
-            LoadServices(); // Refresh RJComboBox3 with updated list
+            LoadServices();
         }
     }
     else
@@ -475,13 +448,10 @@ namespace GP_Auto_Accounts
         {
             addVehicleDialog dialog = new addVehicleDialog();
 
-            // Show the form as a dialog (modal)
             dialog.ShowDialog();
 
-            // Optionally, you can retrieve any values or inputs from the dialog form after it's closed.
 
 
-            // Do something with the result, like updating the UI
         }
 
 
@@ -497,7 +467,7 @@ namespace GP_Auto_Accounts
         {
 
             string vehicleNo = rjComboBox4.SelectedItem?.ToString();
-            string customerName = rjComboBox1.SelectedItem?.ToString(); // optional, for safety
+            string customerName = rjComboBox1.SelectedItem?.ToString();
 
             if (!string.IsNullOrEmpty(vehicleNo))
             {
@@ -543,13 +513,11 @@ namespace GP_Auto_Accounts
 
         private void txtDiscount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Only allow numbers and backspace
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
 
-            // Prevent entering more than 3 digits (0-100%)
             if (char.IsDigit(e.KeyChar) && txtDiscount.Text.Replace("%", "").Length >= 3)
             {
                 e.Handled = true;
@@ -562,7 +530,7 @@ namespace GP_Auto_Accounts
 
             foreach (DataGridViewRow row in kryptonDataGridView1.Rows)
             {
-                if (!row.IsNewRow && row.Cells[3].Value != null) // Item Total column
+                if (!row.IsNewRow && row.Cells[3].Value != null)
                 {
                     if (decimal.TryParse(row.Cells[3].Value.ToString(), out decimal itemTotal))
                     {
@@ -584,27 +552,20 @@ namespace GP_Auto_Accounts
         {
             try
             {
-                // Parse grand total with proper decimal handling
                 if (!decimal.TryParse(txtGrandTotal.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal grandTotal) || grandTotal < 0)
                 {
                     txtOutstanding.Text = 0.ToString("F2");
                     return;
                 }
 
-                // Parse amount paid (treat invalid/empty as 0)
                 if (!decimal.TryParse(txtAmountPaid.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal amountPaid) || amountPaid < 0)
                 {
                     amountPaid = 0;
                 }
 
-                // Handle overpayment with better UX
                 if (amountPaid > grandTotal)
                 {
-                    // Option 1: Show warning but allow overpayment (common in some business cases)
-                    // MessageBox.Show("Note: Payment exceeds grand total. Change will be due.", 
-                    //               "Overpayment", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Option 2: Auto-correct to exact amount (current behavior)
                     amountPaid = grandTotal;
                     txtAmountPaid.Text = amountPaid.ToString("F2");
                 }
@@ -612,7 +573,6 @@ namespace GP_Auto_Accounts
                 decimal outstanding = grandTotal - amountPaid;
                 txtOutstanding.Text = outstanding.ToString("F2");
 
-                // Optional: Visual feedback for fully paid/overpaid
                 if (outstanding <= 0)
                 {
                     txtOutstanding.BackColor = Color.LightGreen;
@@ -655,8 +615,8 @@ namespace GP_Auto_Accounts
             foreach (DataGridViewRow row in kryptonDataGridView1.Rows)
             {
                 if (!row.IsNewRow &&
-                    row.Cells[3].Value != null && // Item Total
-                    row.Cells[4].Value != null)   // Discount
+                    row.Cells[3].Value != null &&
+                    row.Cells[4].Value != null)
                 {
                     if (decimal.TryParse(row.Cells[3].Value.ToString(), out decimal itemTotal))
                     {
@@ -696,7 +656,6 @@ namespace GP_Auto_Accounts
 
         private void KryptonDataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            // For Quantity column (index 1)
             if (kryptonDataGridView1.CurrentCell.ColumnIndex == 1)
             {
                 if (e.Control is TextBox tb)
@@ -705,7 +664,6 @@ namespace GP_Auto_Accounts
                     tb.KeyPress += QuantityKeyPress;
                 }
             }
-            // For Unit Price column (index 2)
             else if (kryptonDataGridView1.CurrentCell.ColumnIndex == 2)
             {
                 if (e.Control is TextBox tb)
@@ -718,7 +676,6 @@ namespace GP_Auto_Accounts
 
         private void QuantityKeyPress(object sender, KeyPressEventArgs e)
         {
-            // Only allow numbers and backspace
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
@@ -727,13 +684,11 @@ namespace GP_Auto_Accounts
 
         private void PriceKeyPress(object sender, KeyPressEventArgs e)
         {
-            // Allow numbers, decimal point, and backspace
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
 
-            // Only allow one decimal point
             TextBox tb = sender as TextBox;
             if (e.KeyChar == '.' && tb.Text.Contains('.'))
             {
@@ -743,7 +698,7 @@ namespace GP_Auto_Accounts
 
         private void txtGrandTotal_TextChanged(object sender, EventArgs e)
         {
-            CalculateOutstanding(); // Recalculate outstanding when grand total changes
+            CalculateOutstanding();
         }
 
         private void ClearInvoiceForm()
@@ -772,7 +727,7 @@ namespace GP_Auto_Accounts
             rjComboBox3.SelectedIndex = -1;
             rjComboBox4.SelectedIndex = -1;
 
-            kryptonDataGridView1.Rows.Clear(); // Clears all rows from the DataGridView
+            kryptonDataGridView1.Rows.Clear();
 
             chkFullyPaid.Checked = false;
 
@@ -785,14 +740,12 @@ namespace GP_Auto_Accounts
             string description = txtDescription.Text.Trim();
             string mileageText = txtMileage.Text.Trim();
 
-            // Validate mileage
             if (!int.TryParse(mileageText, out int mileageValue) || mileageValue < 0)
             {
                 MessageBox.Show("Invalid mileage. Please enter a positive whole number.");
                 return;
             }
 
-            // Validate financial amounts
             if (!decimal.TryParse(txtGrandTotal.Text.Trim(), out decimal grandTotal) ||
                 !decimal.TryParse(txtSubTotal.Text.Trim(), out decimal subTotal) ||
                 !decimal.TryParse(txtTotalDiscount.Text.Trim(), out decimal totalDiscount))
@@ -801,14 +754,12 @@ namespace GP_Auto_Accounts
                 return;
             }
 
-            // Validate payment amount
             if (!decimal.TryParse(txtAmountPaid.Text.Trim(), out decimal amountPaid))
             {
                 MessageBox.Show("Please enter a valid payment amount.");
                 return;
             }
 
-            // Ensure payment doesn't exceed grand total
             amountPaid = Math.Min(amountPaid, grandTotal);
 
             string selectedName = rjComboBox1.SelectedItem?.ToString();
@@ -827,7 +778,6 @@ namespace GP_Auto_Accounts
 
                 try
                 {
-                    // 1. Insert Invoice
                     string insertInvoiceQuery = @"
                 INSERT INTO Invoice (Customer_ID, Updated_By, SubTotal, TotalDiscount, GrandTotal, Description, Mileage)
                 VALUES (@Customer_ID, @Updated_By, @SubTotal, @TotalDiscount, @GrandTotal, @Description, @Mileage);
@@ -845,17 +795,15 @@ namespace GP_Auto_Accounts
 
                     int invoiceID = Convert.ToInt32(cmdInvoice.ExecuteScalar());
 
-                    // 2. Insert InvoiceDetails
                     foreach (DataGridViewRow row in kryptonDataGridView1.Rows)
                     {
                         if (row.IsNewRow) continue;
 
                         string itemType = row.Cells["ItemType"].Value?.ToString();
-                        string itemName = row.Cells[0].Value?.ToString(); // Item name from first column
+                        string itemName = row.Cells[0].Value?.ToString();
                         int qty = int.Parse(row.Cells["quantity"].Value?.ToString());
                         decimal discount = decimal.Parse(row.Cells["discount"].Value?.ToString().Replace("%", ""));
 
-                        // Get the actual ID from database
                         int? itemId = null;
                         if (itemType == "Product")
                         {
@@ -901,7 +849,6 @@ namespace GP_Auto_Accounts
                         cmdDetail.Parameters.AddWithValue("@DiscountPercent", discount);
                         cmdDetail.ExecuteNonQuery();
 
-                        // Update stock only for products
                         if (itemType == "Product")
                         {
                             string updateStockQuery = "UPDATE Product SET Quantity = Quantity - @Quantity WHERE ProductID = @ProductID";
@@ -912,7 +859,6 @@ namespace GP_Auto_Accounts
                         }
                     }
 
-                    // 3. Insert Payment (using actual amount paid, not grand total)
                     if (amountPaid > 0)
                     {
                         string insertPaymentQuery = @"
@@ -950,7 +896,6 @@ namespace GP_Auto_Accounts
             }
         }
 
-        // Helper method to get Service ID by name
         private int? GetServiceIdByName(string serviceName, SqlConnection con, SqlTransaction transaction)
         {
             string query = "SELECT ServiceID FROM Service WHERE ServiceName = @ServiceName";
@@ -962,7 +907,6 @@ namespace GP_Auto_Accounts
             }
         }
 
-        // Helper method to get Product ID by name
         private int? GetProductIdByName(string productName, SqlConnection con, SqlTransaction transaction)
         {
             string query = "SELECT ProductID FROM Product WHERE ProductName = @ProductName";
@@ -974,14 +918,12 @@ namespace GP_Auto_Accounts
             }
         }
 
-        // Helper class for customer info
         class CustomerVehicleInfo
         {
             public string ContactNo { get; set; }
             public string VehicleNo { get; set; }
         }
 
-        // Method to get customer contact and vehicle no
         CustomerVehicleInfo GetCustomerVehicleInfo(int customerId)
         {
             CustomerVehicleInfo info = new CustomerVehicleInfo();
@@ -1066,7 +1008,6 @@ namespace GP_Auto_Accounts
             DataTable productDetailsTable = GetInvoiceProductDetails(invoiceID);
             DataTable serviceDetailsTable = GetInvoiceServiceDetails(invoiceID);
 
-            // Get the invoice summary (subtotal, discount, grand total)
             decimal subtotal = 0, totalDiscount = 0, grandTotal = 0;
             GetInvoiceSummary(invoiceID, out subtotal, out totalDiscount, out grandTotal);
 
@@ -1081,7 +1022,6 @@ namespace GP_Auto_Accounts
                 PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
                 doc.Open();
 
-                // Load custom fonts with fallback to system fonts if custom fonts not found
                 BaseFont titleFont = null;
                 BaseFont labelFont = null;
                 BaseFont textFont = null;
@@ -1090,7 +1030,6 @@ namespace GP_Auto_Accounts
 
                 try
                 {
-                    // Try to load custom fonts
                     string afacadBoldPath = @"C:\Fonts\AfacadFlux-Bold.ttf";
                     string afacadThinPath = @"C:\Fonts\AfacadFlux-Regular.ttf";
                     string bahnschriftPath = @"C:\Fonts\BS_Static_Bold.ttf";
@@ -1103,7 +1042,6 @@ namespace GP_Auto_Accounts
                 }
                 catch
                 {
-                    // Fallback to system fonts if custom fonts fail
                     titleFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, false);
                     labelFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, false);
                     textFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
@@ -1111,25 +1049,20 @@ namespace GP_Auto_Accounts
                     tableDataFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
                 }
 
-                // Create font objects with appropriate sizes
                 iTextSharp.text.Font fontTitle = new iTextSharp.text.Font(titleFont, 20);
                 iTextSharp.text.Font fontLabel = new iTextSharp.text.Font(labelFont, 14);
                 iTextSharp.text.Font fontText = new iTextSharp.text.Font(textFont, 12);
                 iTextSharp.text.Font fontTableHeader = new iTextSharp.text.Font(tableHeaderFont, 8);
                 iTextSharp.text.Font fontTableData = new iTextSharp.text.Font(tableDataFont, 8);
 
-                // Create Arial fonts for specific elements
                 BaseFont arialBold = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, false);
                 BaseFont arialRegular = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
 
-                // Font for Services label (Arial Bold 12pt)
                 iTextSharp.text.Font fontServicesLabel = new iTextSharp.text.Font(arialBold, 10);
 
-                // Fonts for summary section
                 iTextSharp.text.Font fontSummaryLabel = new iTextSharp.text.Font(arialBold, 8);
                 iTextSharp.text.Font fontSummaryValue = new iTextSharp.text.Font(arialRegular, 8);
 
-                // Logo
                 string logoPath = @"C:\Users\Umer Farook\Desktop\group project proposal\logo.png";
                 if (File.Exists(logoPath))
                 {
@@ -1151,7 +1084,6 @@ namespace GP_Auto_Accounts
                 };
                 doc.Add(invoiceTitle);
 
-                // Customer + Invoice Header Table
                 PdfPTable headerTable = new PdfPTable(2);
                 headerTable.WidthPercentage = 100;
                 headerTable.SetWidths(new float[] { 3f, 2f });
@@ -1172,13 +1104,11 @@ namespace GP_Auto_Accounts
                 doc.Add(headerTable);
                 doc.Add(new Paragraph(" "));
 
-                // Create a single table for all items
-                PdfPTable mainTable = new PdfPTable(7); // 7 columns
+                PdfPTable mainTable = new PdfPTable(7);
                 mainTable.WidthPercentage = 100;
                 float[] columnWidths = { 0.7f, 5f, 1.2f, 1.5f, 1.5f, 1.2f, 1.8f };
                 mainTable.SetWidths(columnWidths);
 
-                // Add table headers only once
                 PdfPCell noHeader = new PdfPCell(new Phrase("No.", fontTableHeader))
                 {
                     BackgroundColor = BaseColor.LIGHT_GRAY,
@@ -1202,20 +1132,16 @@ namespace GP_Auto_Accounts
                     mainTable.AddCell(cell);
                 }
 
-                // Add products with numbering starting from 1
                 int productCounter = 1;
                 foreach (DataRow row in productDetailsTable.Rows)
                 {
                     AddItemToTable(row, mainTable, fontTableData, ref productCounter);
                 }
 
-                // Add services with fresh numbering starting from 1
                 if (serviceDetailsTable.Rows.Count > 0)
                 {
-                    // Add separator if there are products above
                     if (productDetailsTable.Rows.Count > 0)
                     {
-                        // Add empty row as separator
                         for (int i = 0; i < 7; i++)
                         {
                             mainTable.AddCell(new PdfPCell(new Phrase(" ", fontTableData))
@@ -1225,7 +1151,6 @@ namespace GP_Auto_Accounts
                             });
                         }
 
-                        // Add "Services" label with Arial Bold 12pt
                         PdfPCell servicesLabel = new PdfPCell(new Phrase("Services", fontServicesLabel))
                         {
                             Colspan = 7,
@@ -1236,7 +1161,6 @@ namespace GP_Auto_Accounts
                         mainTable.AddCell(servicesLabel);
                     }
 
-                    // Add services with fresh numbering
                     int serviceCounter = 1;
                     foreach (DataRow row in serviceDetailsTable.Rows)
                     {
@@ -1246,22 +1170,18 @@ namespace GP_Auto_Accounts
 
                 doc.Add(mainTable);
 
-                // Add horizontal line before summary section
                 doc.Add(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.5f, 100f, BaseColor.BLACK, Element.ALIGN_CENTER, 0f)));
-                doc.Add(new Paragraph(" ")); // Add some space
+                doc.Add(new Paragraph(" "));
 
-                // Create summary table (2 columns: label and value)
                 PdfPTable summaryTable = new PdfPTable(2);
                 summaryTable.WidthPercentage = 50;
                 summaryTable.HorizontalAlignment = Element.ALIGN_RIGHT;
                 summaryTable.SetWidths(new float[] { 2f, 1f });
 
-                // Add summary rows with Arial Bold for labels and Arial Regular for values
                 AddSummaryRow(summaryTable, "Subtotal:", subtotal.ToString("F2"), fontSummaryLabel, fontSummaryValue);
                 AddSummaryRow(summaryTable, "Total Discount:", totalDiscount.ToString("F2"), fontSummaryLabel, fontSummaryValue);
                 AddSummaryRow(summaryTable, "Grand Total:", grandTotal.ToString("F2"), fontSummaryLabel, fontSummaryValue);
 
-                // Get payment information
                 decimal amountPaid = GetAmountPaid(invoiceID);
                 decimal outstanding = grandTotal - amountPaid;
 
@@ -1288,7 +1208,6 @@ namespace GP_Auto_Accounts
                     doc.Add(recommendationText);
                 }
 
-                // Add footer
                 doc.Add(new Paragraph(" "));
                 doc.Add(new Paragraph("Thank you for your business!", fontLabel)
                 {
@@ -1367,7 +1286,6 @@ namespace GP_Auto_Accounts
 
         private void AddItemToTable(DataRow row, PdfPTable table, iTextSharp.text.Font font, ref int serialNo)
         {
-            // Add serial number
             table.AddCell(new PdfPCell(new Phrase(serialNo++.ToString(), font))
             {
                 Border = PdfPCell.NO_BORDER,
@@ -1375,7 +1293,6 @@ namespace GP_Auto_Accounts
                 HorizontalAlignment = Element.ALIGN_CENTER
             });
 
-            // Add item details
             string[] columns = { "Item Name", "Quantity", "Unit Price", "Item Total", "Discount %", "Final Amount" };
             foreach (string col in columns)
             {
@@ -1384,7 +1301,6 @@ namespace GP_Auto_Accounts
 
                 if (col == "Discount %" && item != DBNull.Value)
                 {
-                    // Format discount and append %
                     decimal discountValue = Convert.ToDecimal(item);
                     text = discountValue % 1 == 0
                         ? discountValue.ToString("0") + " %"
@@ -1392,12 +1308,10 @@ namespace GP_Auto_Accounts
                 }
                 else if ((col == "Unit Price" || col == "Item Total" || col == "Final Amount") && item != DBNull.Value)
                 {
-                    // Standard currency formatting with 2 decimals
                     text = decimal.TryParse(item.ToString(), out var val) ? val.ToString("F2") : item.ToString();
                 }
                 else
                 {
-                    // Default formatting for other columns
                     text = item?.ToString() ?? "";
                 }
 
@@ -1415,7 +1329,6 @@ namespace GP_Auto_Accounts
 
         private void kryptonDataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            // Check if the clicked column is the delete button column
             if (e.ColumnIndex == kryptonDataGridView1.Columns["DeleteColumn"].Index && e.RowIndex >= 0)
             {
                 DialogResult result = MessageBox.Show(
@@ -1451,15 +1364,13 @@ namespace GP_Auto_Accounts
         {
             if (rdoSales.Checked)
             {
-                // Clear all input fields
                 ClearAllInputFields();
 
                 rjComboBox3.SelectedIndex = -1;
                 rjComboBox3.Items.Clear();
 
-                LoadItemNames(""); // Load products
+                LoadItemNames("");
 
-                // Update UI visibility for Sales mode
                 rjComboBox2.Visible = true;
                 txtPartNo.Visible = true;
                 lblPartNo.Text = "Part Number";
@@ -1473,7 +1384,6 @@ namespace GP_Auto_Accounts
                 txtThresholdQty.Enabled = true;
                 txtServiceFee.Clear();
 
-                // Explicitly clear calculated fields (even if they show 0.00)
                 txtItemTotal.Text = "";
                 txtAmount.Text = "";
                 txtDiscount.Text = "";
@@ -1486,15 +1396,13 @@ namespace GP_Auto_Accounts
         {
             if (rdoServices.Checked)
             {
-                // Clear all input fields
                 ClearAllInputFields();
 
                 rjComboBox3.SelectedIndex = -1;
                 rjComboBox3.Items.Clear();
 
-                LoadServices(); // Load services instead of products
+                LoadServices();
 
-                // Update UI visibility for Services mode
                 rjComboBox2.Visible = false;
                 lblPartNo.Text = "Service Fee";
                 lblCategory.Visible = false;
@@ -1506,7 +1414,6 @@ namespace GP_Auto_Accounts
                 txtAvailableQty.Enabled = false;
                 txtThresholdQty.Enabled = false;
 
-                // Explicitly clear calculated fields (even if they show 0.00)
                 txtItemTotal.Text = "";
                 txtAmount.Text = "";
                 txtDiscount.Text = "";
@@ -1525,14 +1432,12 @@ namespace GP_Auto_Accounts
         }
         private void kryptonButton24_Click(object sender, EventArgs e)
         {
-            // Flag to prevent auto-calculation during clearing
             bool isProcessing = true;
 
             try
             {
                 if (rdoServices.Checked)
                 {
-                    // --- Service Logic ---
                     string serviceName = rjComboBox3.SelectedItem?.ToString();
                     string description = txtDescription.Text.Trim();
 
@@ -1542,7 +1447,6 @@ namespace GP_Auto_Accounts
                         return;
                     }
 
-                    // Check for duplicate service
                     foreach (DataGridViewRow row in kryptonDataGridView1.Rows)
                     {
                         if (!row.IsNewRow)
@@ -1559,7 +1463,6 @@ namespace GP_Auto_Accounts
                         }
                     }
 
-                    // Validate inputs
                     if (!int.TryParse(txtQuantity.Text, out int qty) || qty <= 0)
                     {
                         MessageBox.Show("Quantity must be a positive number.");
@@ -1572,7 +1475,6 @@ namespace GP_Auto_Accounts
                         return;
                     }
 
-                    // Parse discount
                     decimal discount = 0;
                     if (!string.IsNullOrEmpty(txtDiscount.Text))
                     {
@@ -1584,7 +1486,6 @@ namespace GP_Auto_Accounts
                         }
                     }
 
-                    // Calculate and add to grid
                     decimal itemTotal = unitPrice * qty;
                     decimal finalAmount = itemTotal * (1 - discount / 100m);
 
@@ -1595,13 +1496,12 @@ namespace GP_Auto_Accounts
                        itemTotal.ToString("F2"),
                        discount.ToString("0.##") + "%",
                        finalAmount.ToString("F2"),
-                       "", // Keep empty string if needed for other columns
+                       "",
                        "Service"
                        );
                 }
                 else
                 {
-                    // --- Product Logic ---
                     string item = rjComboBox3.SelectedItem?.ToString();
                     string partNo = txtPartNo.Text.Trim();
                     string description = txtDescription.Text.Trim();
@@ -1612,7 +1512,6 @@ namespace GP_Auto_Accounts
                         return;
                     }
 
-                    // Check for duplicate product
                     foreach (DataGridViewRow row in kryptonDataGridView1.Rows)
                     {
                         if (!row.IsNewRow)
@@ -1631,7 +1530,6 @@ namespace GP_Auto_Accounts
                         }
                     }
 
-                    // Validate inputs
                     if (!int.TryParse(txtQuantity.Text, out int qty) || qty <= 0)
                     {
                         MessageBox.Show("Quantity must be a positive number.");
@@ -1644,7 +1542,6 @@ namespace GP_Auto_Accounts
                         return;
                     }
 
-                    // Parse discount
                     decimal discount = 0;
                     if (!string.IsNullOrEmpty(txtDiscount.Text))
                     {
@@ -1656,7 +1553,6 @@ namespace GP_Auto_Accounts
                         }
                     }
 
-                    // Calculate and add to grid
                     decimal itemTotal = qty * unitPrice;
                     decimal finalAmount = itemTotal * (1 - discount / 100m);
 
@@ -1672,7 +1568,6 @@ namespace GP_Auto_Accounts
                     );
                 }
 
-                // Recalculate and clear
                 CalculateSubTotal();
                 CalculateTotalDiscount();
                 CalculateGrandTotal();
@@ -1686,12 +1581,10 @@ namespace GP_Auto_Accounts
 
         private void ClearAllInputFields()
         {
-            // Temporarily disable event handlers
             txtQuantity.TextChanged -= txtQuantity_TextChanged;
             txtServiceFee.TextChanged -= txtServiceFee_TextChanged;
             txtDiscount.TextChanged -= txtDiscount_TextChanged;
 
-            // Clear ALL fields
             txtQuantity.Clear();
             txtDiscount.Clear();
            
@@ -1704,16 +1597,13 @@ namespace GP_Auto_Accounts
             txtAvailableQty.Clear();
             txtThresholdQty.Clear();
 
-            // Reset comboboxes
             rjComboBox3.SelectedIndex = -1;
             rjComboBox2.SelectedIndex = -1;
 
-            // Re-enable event handlers
             txtQuantity.TextChanged += txtQuantity_TextChanged;
             txtServiceFee.TextChanged += txtServiceFee_TextChanged;
             txtDiscount.TextChanged += txtDiscount_TextChanged;
 
-            // Set focus appropriately
             if (rdoServices.Checked)
             {
                 rjComboBox3.Focus();
@@ -1730,7 +1620,7 @@ namespace GP_Auto_Accounts
             CalculateItemTotalAndFinalAmount();
         }
 
-        private bool isFormattingServiceFee = false; // Add this class-level variable
+        private bool isFormattingServiceFee = false;
 
         private void txtServiceFee_TextChanged(object sender, EventArgs e)
         {
@@ -1739,38 +1629,30 @@ namespace GP_Auto_Accounts
             string text = txtServiceFee.Text;
             int cursorPos = txtServiceFee.SelectionStart;
 
-            // Skip if empty or already has decimal places
             if (!string.IsNullOrEmpty(text))
             {
                 try
                 {
                     isFormattingServiceFee = true;
 
-                    // Remove any non-numeric characters except decimal point
                     string cleanText = new string(text.Where(c => char.IsDigit(c) || c == '.').ToArray());
 
-                    // If there's no decimal point, we'll add it
                     bool needsDecimalFormat = !cleanText.Contains('.');
 
                     if (decimal.TryParse(cleanText, out decimal value))
                     {
-                        // Format with 2 decimal places
                         string newText = needsDecimalFormat ? value.ToString("0.00") : value.ToString("F2");
 
-                        // Only update if the formatted text is different
                         if (newText != text)
                         {
                             txtServiceFee.Text = newText;
 
-                            // Adjust cursor position
                             if (needsDecimalFormat)
                             {
-                                // When adding .00, place cursor before the decimal
                                 txtServiceFee.SelectionStart = Math.Min(cursorPos, txtServiceFee.Text.Length - 3);
                             }
                             else
                             {
-                                // Normal adjustment for other cases
                                 int newPos = cursorPos + (newText.Length - text.Length);
                                 txtServiceFee.SelectionStart = Math.Max(0, Math.Min(newPos, txtServiceFee.Text.Length));
                             }
@@ -1792,17 +1674,14 @@ namespace GP_Auto_Accounts
 
         private void txtServiceFee_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Allow control keys (backspace, delete, etc.)
             if (char.IsControl(e.KeyChar)) return;
 
-            // Allow only one decimal point
             if (e.KeyChar == '.' && txtServiceFee.Text.Contains('.'))
             {
                 e.Handled = true;
                 return;
             }
 
-            // Allow only digits and decimal point
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
@@ -1812,7 +1691,6 @@ namespace GP_Auto_Accounts
 
         private void txtServiceFee_KeyDown(object sender, KeyEventArgs e)
         {
-            // Allow full selection deletion
             if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
             {
                 if (txtServiceFee.SelectionLength == txtServiceFee.Text.Length)
@@ -1822,10 +1700,8 @@ namespace GP_Auto_Accounts
                 }
             }
 
-            // Handle paste operation
             if (e.Control && e.KeyCode == Keys.V)
             {
-                // Let the paste occur, then TextChanged will handle formatting
                 return;
             }
         }
@@ -1833,20 +1709,15 @@ namespace GP_Auto_Accounts
         {
             if (isProcessing) return;
 
-            // Get current text and cursor position
             string currentText = txtDiscount.Text;
             int cursorPos = txtDiscount.SelectionStart;
 
-            // Only process if not empty and doesn't already end with %
             if (!string.IsNullOrEmpty(currentText) && !currentText.EndsWith("%"))
             {
-                // Remove any existing % signs to prevent duplicates
                 string cleanText = currentText.Replace("%", "");
 
-                // Add % at the end
                 txtDiscount.Text = cleanText + "%";
 
-                // Restore cursor position (adjust if we removed characters)
                 txtDiscount.SelectionStart = cursorPos <= cleanText.Length ? cursorPos : cleanText.Length;
             }
 
@@ -1857,16 +1728,14 @@ namespace GP_Auto_Accounts
         private void kryptonDataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             DataGridViewCell cell = kryptonDataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            cell.Tag = cell.Style.BackColor; // Store original color
+            cell.Tag = cell.Style.BackColor;
 
-            // Highlight only the edited cell
             cell.Style.BackColor = Color.LightBlue;
 
-            if (e.ColumnIndex == 2) // Unit Price column
+            if (e.ColumnIndex == 2)
             {
                 string itemType = kryptonDataGridView1.Rows[e.RowIndex].Cells[7].Value?.ToString();
 
-                // Allow editing only for Services
                 if (itemType != "Service")
                 {
                     e.Cancel = true;
@@ -1881,7 +1750,6 @@ namespace GP_Auto_Accounts
             DataGridViewRow row = kryptonDataGridView1.Rows[e.RowIndex];
             DataGridViewCell cell = row.Cells[e.ColumnIndex];
 
-            // Restore original background color
             if (cell.Tag is Color originalColor)
                 cell.Style.BackColor = originalColor;
             else
@@ -1891,7 +1759,6 @@ namespace GP_Auto_Accounts
 
             string itemType = row.Cells[7].Value?.ToString();
 
-            // Only validate Quantity (1), Unit Price (2), or Discount (4)
             if (e.ColumnIndex == 1 || e.ColumnIndex == 2 || e.ColumnIndex == 4)
             {
                 string qtyStr = row.Cells[1].Value?.ToString();
@@ -1908,20 +1775,17 @@ namespace GP_Auto_Accounts
                     return;
                 }
 
-                // Recalculate
                 decimal itemTotal = qty * price;
                 decimal finalAmount = itemTotal * (1 - discount / 100m);
 
-                row.Cells[3].Value = itemTotal.ToString("F2");             // Item Total
-                row.Cells[4].Value = discount.ToString("0.##") + "%";      // Discount %
-                row.Cells[5].Value = finalAmount.ToString("F2");           // Final Amount
+                row.Cells[3].Value = itemTotal.ToString("F2");
+                row.Cells[4].Value = discount.ToString("0.##") + "%";
+                row.Cells[5].Value = finalAmount.ToString("F2");
 
-                // Refresh totals
                 CalculateSubTotal();
                 CalculateTotalDiscount();
                 CalculateGrandTotal();
 
-                // ✅ Show update success message
                 string message = itemType == "Service" ? "Service updated successfully!" : "Product updated successfully!";
                 ShowSuccessMessage(message);
             }

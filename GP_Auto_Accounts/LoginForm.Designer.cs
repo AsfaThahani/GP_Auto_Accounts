@@ -2,15 +2,8 @@
 {
     partial class LoginForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,9 +32,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.kryptonButton1);
@@ -60,9 +46,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(919, 654);
             this.panel2.TabIndex = 55;
-            // 
-            // pictureBox2
-            // 
             this.pictureBox2.Image = global::GP_Auto_Accounts.Properties.Resources.WhatsApp_Image_2025_06_16_at_8_512;
             this.pictureBox2.Location = new System.Drawing.Point(656, -3);
             this.pictureBox2.Name = "pictureBox2";
@@ -70,9 +53,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 55;
             this.pictureBox2.TabStop = false;
-            // 
-            // kryptonButton1
-            // 
             this.kryptonButton1.Location = new System.Drawing.Point(786, 601);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.AliceBlue;
@@ -135,9 +115,6 @@
             this.kryptonButton1.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton1.Values.Text = "Cancel";
             this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
-            // 
-            // kryptonButton22
-            // 
             this.kryptonButton22.Location = new System.Drawing.Point(637, 502);
             this.kryptonButton22.Name = "kryptonButton22";
             this.kryptonButton22.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumBlue;
@@ -200,9 +177,6 @@
             this.kryptonButton22.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.kryptonButton22.Values.Text = "Login";
             this.kryptonButton22.Click += new System.EventHandler(this.kryptonButton22_Click);
-            // 
-            // txtHashPassword
-            // 
             this.txtHashPassword.Location = new System.Drawing.Point(543, 366);
             this.txtHashPassword.MaximumSize = new System.Drawing.Size(305, 35);
             this.txtHashPassword.Name = "txtHashPassword";
@@ -216,9 +190,6 @@
             this.txtHashPassword.StateCommon.Border.Width = 1;
             this.txtHashPassword.TabIndex = 50;
          
-            // 
-            // txtUsernameOrEmail
-            // 
             this.txtUsernameOrEmail.Location = new System.Drawing.Point(543, 268);
             this.txtUsernameOrEmail.MaximumSize = new System.Drawing.Size(305, 35);
             this.txtUsernameOrEmail.Name = "txtUsernameOrEmail";
@@ -232,9 +203,6 @@
             this.txtUsernameOrEmail.StateCommon.Border.Width = 1;
             this.txtUsernameOrEmail.TabIndex = 49;
           
-            // 
-            // label2
-            // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Moon", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(155)))));
@@ -243,9 +211,6 @@
             this.label2.Size = new System.Drawing.Size(99, 16);
             this.label2.TabIndex = 48;
             this.label2.Text = "Password";
-            // 
-            // label4
-            // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Moon", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(155)))));
@@ -255,9 +220,6 @@
             this.label4.TabIndex = 47;
             this.label4.Text = "USERNAME or EMAIL";
           
-            // 
-            // label5
-            // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Moon", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(155)))));
@@ -267,18 +229,12 @@
             this.label5.TabIndex = 46;
             this.label5.Text = "Login";
      
-            // 
-            // pictureBox1
-            // 
             this.pictureBox1.Image = global::GP_Auto_Accounts.Properties.Resources.SIGNUP2;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(455, 654);
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnPasswordToggle
-            // 
             this.btnPasswordToggle.Location = new System.Drawing.Point(811, 371);
             this.btnPasswordToggle.Name = "btnPasswordToggle";
             this.btnPasswordToggle.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -314,9 +270,6 @@
             this.btnPasswordToggle.Click += new System.EventHandler(this.btnPasswordToggle_Click);
             this.btnPasswordToggle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnPasswordToggle_MouseDown);
             this.btnPasswordToggle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnPasswordToggle_MouseUp);
-            // 
-            // LoginForm
-            // 
             this.AcceptButton = this.kryptonButton22;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

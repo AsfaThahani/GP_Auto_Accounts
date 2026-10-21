@@ -2,15 +2,8 @@
 {
     partial class payInvoice
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.btnCancel = new Krypton.Toolkit.KryptonButton();
@@ -36,9 +25,6 @@
             this.kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
             this.btnCancel.Location = new System.Drawing.Point(322, 375);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -98,9 +84,6 @@
             this.btnCancel.TabIndex = 112;
             this.btnCancel.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnCancel.Values.Text = "Cancel";
-            // 
-            // btnAdd
-            // 
             this.btnAdd.Location = new System.Drawing.Point(239, 375);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -160,9 +143,6 @@
             this.btnAdd.TabIndex = 111;
             this.btnAdd.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnAdd.Values.Text = "Add";
-            // 
-            // txtItemName
-            // 
             this.txtItemName.Location = new System.Drawing.Point(217, 88);
             this.txtItemName.MaximumSize = new System.Drawing.Size(182, 25);
             this.txtItemName.Name = "txtItemName";
@@ -170,9 +150,6 @@
             this.txtItemName.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtItemName.StateCommon.Border.Width = 0;
             this.txtItemName.TabIndex = 110;
-            // 
-            // kryptonLabel2
-            // 
             this.kryptonLabel2.Location = new System.Drawing.Point(55, 88);
             this.kryptonLabel2.MaximumSize = new System.Drawing.Size(140, 23);
             this.kryptonLabel2.Name = "kryptonLabel2";
@@ -181,9 +158,6 @@
             this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel2.TabIndex = 109;
             this.kryptonLabel2.Values.Text = "Item Name";
-            // 
-            // label1
-            // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -192,9 +166,6 @@
             this.label1.Size = new System.Drawing.Size(133, 21);
             this.label1.TabIndex = 108;
             this.label1.Text = "Payment Details";
-            // 
-            // kryptonTextBox1
-            // 
             this.kryptonTextBox1.Location = new System.Drawing.Point(217, 135);
             this.kryptonTextBox1.MaximumSize = new System.Drawing.Size(182, 25);
             this.kryptonTextBox1.Name = "kryptonTextBox1";
@@ -202,9 +173,6 @@
             this.kryptonTextBox1.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryptonTextBox1.StateCommon.Border.Width = 0;
             this.kryptonTextBox1.TabIndex = 114;
-            // 
-            // kryptonLabel1
-            // 
             this.kryptonLabel1.Location = new System.Drawing.Point(55, 137);
             this.kryptonLabel1.MaximumSize = new System.Drawing.Size(140, 23);
             this.kryptonLabel1.Name = "kryptonLabel1";
@@ -213,9 +181,6 @@
             this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel1.TabIndex = 113;
             this.kryptonLabel1.Values.Text = "Item Name";
-            // 
-            // payInvoice
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);

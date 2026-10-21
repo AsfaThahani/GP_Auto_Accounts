@@ -2,15 +2,8 @@
 {
     partial class addExpenseDialog
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.btnCancel = new Krypton.Toolkit.KryptonButton();
@@ -34,9 +23,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCategoryName = new Krypton.Toolkit.KryptonTextBox();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
             this.btnCancel.Location = new System.Drawing.Point(391, 162);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -97,9 +83,6 @@
             this.btnCancel.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnCancel.Values.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnAdd
-            // 
             this.btnAdd.Location = new System.Drawing.Point(302, 162);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.OverrideDefault.Back.Color1 = System.Drawing.Color.SkyBlue;
@@ -160,9 +143,6 @@
             this.btnAdd.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnAdd.Values.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // kryptonLabel1
-            // 
             this.kryptonLabel1.Location = new System.Drawing.Point(46, 85);
             this.kryptonLabel1.MaximumSize = new System.Drawing.Size(150, 25);
             this.kryptonLabel1.Name = "kryptonLabel1";
@@ -171,9 +151,6 @@
             this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel1.TabIndex = 110;
             this.kryptonLabel1.Values.Text = "Expense Type";
-            // 
-            // label1
-            // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -182,9 +159,6 @@
             this.label1.Size = new System.Drawing.Size(72, 21);
             this.label1.TabIndex = 113;
             this.label1.Text = "Expense";
-            // 
-            // txtCategoryName
-            // 
             this.txtCategoryName.Location = new System.Drawing.Point(208, 83);
             this.txtCategoryName.MaximumSize = new System.Drawing.Size(200, 25);
             this.txtCategoryName.Name = "txtCategoryName";
@@ -192,9 +166,6 @@
             this.txtCategoryName.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
             this.txtCategoryName.StateCommon.Border.Width = 0;
             this.txtCategoryName.TabIndex = 114;
-            // 
-            // addExpenseDialog
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));

@@ -1,0 +1,535 @@
+﻿namespace GP_Auto_Accounts
+{
+    partial class invoiceDetails
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.kryptonGroupBox4 = new Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonDataGridView1 = new Krypton.Toolkit.KryptonDataGridView();
+            this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kryptonLabel14 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonButton19 = new Krypton.Toolkit.KryptonButton();
+            this.txtAmountPaid = new Krypton.Toolkit.KryptonTextBox();
+            this.txtOutstanding = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
+            this.txtGrandTotal = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
+            this.txtTotalDiscount = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
+            this.txtSubTotal = new Krypton.Toolkit.KryptonTextBox();
+            this.txtDescription = new Krypton.Toolkit.KryptonTextBox();
+            this.txtChassisNo = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel12 = new Krypton.Toolkit.KryptonLabel();
+            this.txtMileage = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel11 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel19 = new Krypton.Toolkit.KryptonLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.kryptonLabel16 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel15 = new Krypton.Toolkit.KryptonLabel();
+            this.txtCustomerName = new Krypton.Toolkit.KryptonTextBox();
+            this.txtVehicleNo = new Krypton.Toolkit.KryptonTextBox();
+            this.txtInvoiceNo = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox4.Panel)).BeginInit();
+            this.kryptonGroupBox4.Panel.SuspendLayout();
+            this.kryptonGroupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // kryptonGroupBox4
+            // 
+            this.kryptonGroupBox4.CaptionStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonGroupBox4.Location = new System.Drawing.Point(30, 226);
+            // 
+            // kryptonGroupBox4.Panel
+            // 
+            this.kryptonGroupBox4.Panel.Controls.Add(this.kryptonDataGridView1);
+            this.kryptonGroupBox4.Size = new System.Drawing.Size(1221, 405);
+            this.kryptonGroupBox4.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.kryptonGroupBox4.StateCommon.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonGroupBox4.StateCommon.Border.Color1 = System.Drawing.Color.SkyBlue;
+            this.kryptonGroupBox4.StateCommon.Border.Color2 = System.Drawing.Color.SkyBlue;
+            this.kryptonGroupBox4.StateCommon.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.GlassTrackingFull;
+            this.kryptonGroupBox4.StateCommon.Border.Rounding = 20F;
+            this.kryptonGroupBox4.StateCommon.Border.Width = 3;
+            this.kryptonGroupBox4.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.kryptonGroupBox4.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Alata", 8F);
+            this.kryptonGroupBox4.TabIndex = 80;
+            this.kryptonGroupBox4.Values.Heading = "   Items Cart";
+            // 
+            // kryptonDataGridView1
+            // 
+            this.kryptonDataGridView1.AllowUserToAddRows = false;
+            this.kryptonDataGridView1.AllowUserToOrderColumns = true;
+            this.kryptonDataGridView1.AllowUserToResizeColumns = false;
+            this.kryptonDataGridView1.AllowUserToResizeRows = false;
+            this.kryptonDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kryptonDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kryptonDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PartNo,
+            this.itemName,
+            this.quantity,
+            this.unitPrice,
+            this.itemTotal,
+            this.discount,
+            this.finalAmount,
+            this.ItemType});
+            this.kryptonDataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.kryptonDataGridView1.Name = "kryptonDataGridView1";
+            this.kryptonDataGridView1.RowHeadersVisible = false;
+            this.kryptonDataGridView1.RowHeadersWidth = 62;
+            this.kryptonDataGridView1.RowTemplate.Height = 28;
+            this.kryptonDataGridView1.Size = new System.Drawing.Size(1197, 398);
+            this.kryptonDataGridView1.StateCommon.Background.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.kryptonDataGridView1.StateCommon.Background.Color2 = System.Drawing.Color.WhiteSmoke;
+            this.kryptonDataGridView1.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.kryptonDataGridView1.StateCommon.DataCell.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.kryptonDataGridView1.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.SkyBlue;
+            this.kryptonDataGridView1.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.SkyBlue;
+            this.kryptonDataGridView1.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonDataGridView1.StateCommon.HeaderRow.Back.Color1 = System.Drawing.Color.SkyBlue;
+            this.kryptonDataGridView1.StateCommon.HeaderRow.Back.Color2 = System.Drawing.Color.SkyBlue;
+            this.kryptonDataGridView1.TabIndex = 19;
+            // 
+            // PartNo
+            // 
+            this.PartNo.HeaderText = "PartNo";
+            this.PartNo.MinimumWidth = 8;
+            this.PartNo.Name = "PartNo";
+            this.PartNo.ReadOnly = true;
+            this.PartNo.Width = 170;
+            // 
+            // itemName
+            // 
+            this.itemName.HeaderText = "Item Name";
+            this.itemName.MinimumWidth = 220;
+            this.itemName.Name = "itemName";
+            this.itemName.ReadOnly = true;
+            this.itemName.Width = 250;
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "Qty";
+            this.quantity.MinimumWidth = 50;
+            this.quantity.Name = "quantity";
+            this.quantity.Width = 70;
+            // 
+            // unitPrice
+            // 
+            this.unitPrice.HeaderText = "Unit Price";
+            this.unitPrice.MinimumWidth = 95;
+            this.unitPrice.Name = "unitPrice";
+            this.unitPrice.Width = 110;
+            // 
+            // itemTotal
+            // 
+            this.itemTotal.HeaderText = "Item total";
+            this.itemTotal.MinimumWidth = 95;
+            this.itemTotal.Name = "itemTotal";
+            this.itemTotal.ReadOnly = true;
+            this.itemTotal.Width = 110;
+            // 
+            // discount
+            // 
+            this.discount.HeaderText = "Discount";
+            this.discount.MinimumWidth = 85;
+            this.discount.Name = "discount";
+            this.discount.Width = 110;
+            // 
+            // finalAmount
+            // 
+            this.finalAmount.HeaderText = "Final Amount";
+            this.finalAmount.MinimumWidth = 110;
+            this.finalAmount.Name = "finalAmount";
+            this.finalAmount.ReadOnly = true;
+            this.finalAmount.Width = 110;
+            // 
+            // ItemType
+            // 
+            this.ItemType.HeaderText = "Item type";
+            this.ItemType.MinimumWidth = 8;
+            this.ItemType.Name = "ItemType";
+            this.ItemType.Visible = false;
+            this.ItemType.Width = 150;
+            // 
+            // kryptonLabel14
+            // 
+            this.kryptonLabel14.Location = new System.Drawing.Point(817, 141);
+            this.kryptonLabel14.MaximumSize = new System.Drawing.Size(140, 25);
+            this.kryptonLabel14.Name = "kryptonLabel14";
+            this.kryptonLabel14.Size = new System.Drawing.Size(134, 23);
+            this.kryptonLabel14.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel14.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel14.TabIndex = 102;
+            this.kryptonLabel14.Values.Text = "Recommendation";
+            // 
+            // kryptonButton19
+            // 
+            this.kryptonButton19.Location = new System.Drawing.Point(1164, 683);
+            this.kryptonButton19.Name = "kryptonButton19";
+            this.kryptonButton19.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
+            this.kryptonButton19.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonButton19.OverrideDefault.Border.Width = 0;
+            this.kryptonButton19.Size = new System.Drawing.Size(87, 36);
+            this.kryptonButton19.StateCommon.Back.Color1 = System.Drawing.Color.SkyBlue;
+            this.kryptonButton19.StateCommon.Back.Color2 = System.Drawing.Color.SkyBlue;
+            this.kryptonButton19.StateCommon.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonButton19.StateCommon.Border.Rounding = 15F;
+            this.kryptonButton19.StateCommon.Border.Width = 0;
+            this.kryptonButton19.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonButton19.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonButton19.StateTracking.Back.Color1 = System.Drawing.Color.DeepSkyBlue;
+            this.kryptonButton19.TabIndex = 81;
+            this.kryptonButton19.Values.DropDownArrowColor = System.Drawing.Color.Empty;
+            this.kryptonButton19.Values.Text = "Clear ";
+            // 
+            // txtAmountPaid
+            // 
+            this.txtAmountPaid.Location = new System.Drawing.Point(896, 656);
+            this.txtAmountPaid.MaximumSize = new System.Drawing.Size(182, 25);
+            this.txtAmountPaid.Name = "txtAmountPaid";
+            this.txtAmountPaid.Size = new System.Drawing.Size(115, 25);
+            this.txtAmountPaid.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtAmountPaid.StateCommon.Border.Width = 0;
+            this.txtAmountPaid.TabIndex = 95;
+            // 
+            // txtOutstanding
+            // 
+            this.txtOutstanding.Location = new System.Drawing.Point(896, 696);
+            this.txtOutstanding.MaximumSize = new System.Drawing.Size(182, 25);
+            this.txtOutstanding.Name = "txtOutstanding";
+            this.txtOutstanding.Size = new System.Drawing.Size(115, 25);
+            this.txtOutstanding.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtOutstanding.StateCommon.Border.Width = 0;
+            this.txtOutstanding.TabIndex = 98;
+            // 
+            // kryptonLabel9
+            // 
+            this.kryptonLabel9.Location = new System.Drawing.Point(42, 718);
+            this.kryptonLabel9.MaximumSize = new System.Drawing.Size(355, 25);
+            this.kryptonLabel9.Name = "kryptonLabel9";
+            this.kryptonLabel9.Size = new System.Drawing.Size(92, 23);
+            this.kryptonLabel9.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel9.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel9.TabIndex = 92;
+            this.kryptonLabel9.Values.Text = "Grand Total";
+            // 
+            // txtGrandTotal
+            // 
+            this.txtGrandTotal.Location = new System.Drawing.Point(253, 716);
+            this.txtGrandTotal.MaximumSize = new System.Drawing.Size(182, 25);
+            this.txtGrandTotal.Name = "txtGrandTotal";
+            this.txtGrandTotal.Size = new System.Drawing.Size(115, 25);
+            this.txtGrandTotal.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtGrandTotal.StateCommon.Border.Width = 0;
+            this.txtGrandTotal.TabIndex = 91;
+            // 
+            // kryptonLabel8
+            // 
+            this.kryptonLabel8.Location = new System.Drawing.Point(42, 685);
+            this.kryptonLabel8.MaximumSize = new System.Drawing.Size(110, 30);
+            this.kryptonLabel8.MinimumSize = new System.Drawing.Size(130, 23);
+            this.kryptonLabel8.Name = "kryptonLabel8";
+            this.kryptonLabel8.Size = new System.Drawing.Size(130, 23);
+            this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel8.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel8.TabIndex = 90;
+            this.kryptonLabel8.Values.Text = "Total Discount";
+            // 
+            // txtTotalDiscount
+            // 
+            this.txtTotalDiscount.Location = new System.Drawing.Point(253, 685);
+            this.txtTotalDiscount.MaximumSize = new System.Drawing.Size(182, 25);
+            this.txtTotalDiscount.Name = "txtTotalDiscount";
+            this.txtTotalDiscount.Size = new System.Drawing.Size(115, 25);
+            this.txtTotalDiscount.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtTotalDiscount.StateCommon.Border.Width = 0;
+            this.txtTotalDiscount.TabIndex = 89;
+            // 
+            // kryptonLabel7
+            // 
+            this.kryptonLabel7.Location = new System.Drawing.Point(42, 656);
+            this.kryptonLabel7.MaximumSize = new System.Drawing.Size(110, 25);
+            this.kryptonLabel7.Name = "kryptonLabel7";
+            this.kryptonLabel7.Size = new System.Drawing.Size(76, 23);
+            this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel7.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel7.TabIndex = 86;
+            this.kryptonLabel7.Values.Text = "Sub Total";
+            // 
+            // txtSubTotal
+            // 
+            this.txtSubTotal.Location = new System.Drawing.Point(253, 654);
+            this.txtSubTotal.MaximumSize = new System.Drawing.Size(182, 25);
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.Size = new System.Drawing.Size(115, 25);
+            this.txtSubTotal.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtSubTotal.StateCommon.Border.Width = 0;
+            this.txtSubTotal.TabIndex = 85;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(977, 137);
+            this.txtDescription.MaximumSize = new System.Drawing.Size(1200, 270);
+            this.txtDescription.MinimumSize = new System.Drawing.Size(250, 0);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(250, 47);
+            this.txtDescription.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtDescription.StateCommon.Border.Width = 0;
+            this.txtDescription.TabIndex = 101;
+            // 
+            // txtChassisNo
+            // 
+            this.txtChassisNo.Location = new System.Drawing.Point(181, 175);
+            this.txtChassisNo.MaximumSize = new System.Drawing.Size(249, 25);
+            this.txtChassisNo.Name = "txtChassisNo";
+            this.txtChassisNo.Size = new System.Drawing.Size(249, 25);
+            this.txtChassisNo.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtChassisNo.StateCommon.Border.Width = 0;
+            this.txtChassisNo.TabIndex = 94;
+            // 
+            // kryptonLabel12
+            // 
+            this.kryptonLabel12.Location = new System.Drawing.Point(817, 100);
+            this.kryptonLabel12.MaximumSize = new System.Drawing.Size(110, 25);
+            this.kryptonLabel12.Name = "kryptonLabel12";
+            this.kryptonLabel12.Size = new System.Drawing.Size(102, 23);
+            this.kryptonLabel12.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel12.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel12.TabIndex = 84;
+            this.kryptonLabel12.Values.Text = "Mileage (km)";
+            // 
+            // txtMileage
+            // 
+            this.txtMileage.Location = new System.Drawing.Point(978, 98);
+            this.txtMileage.MaximumSize = new System.Drawing.Size(249, 25);
+            this.txtMileage.Name = "txtMileage";
+            this.txtMileage.Size = new System.Drawing.Size(249, 25);
+            this.txtMileage.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtMileage.StateCommon.Border.Width = 0;
+            this.txtMileage.TabIndex = 83;
+            // 
+            // kryptonLabel11
+            // 
+            this.kryptonLabel11.Location = new System.Drawing.Point(32, 177);
+            this.kryptonLabel11.MaximumSize = new System.Drawing.Size(110, 25);
+            this.kryptonLabel11.Name = "kryptonLabel11";
+            this.kryptonLabel11.Size = new System.Drawing.Size(90, 23);
+            this.kryptonLabel11.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel11.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel11.TabIndex = 93;
+            this.kryptonLabel11.Values.Text = "Chassis No.";
+            // 
+            // kryptonLabel10
+            // 
+            this.kryptonLabel10.Location = new System.Drawing.Point(32, 137);
+            this.kryptonLabel10.MaximumSize = new System.Drawing.Size(110, 25);
+            this.kryptonLabel10.Name = "kryptonLabel10";
+            this.kryptonLabel10.Size = new System.Drawing.Size(90, 23);
+            this.kryptonLabel10.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel10.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel10.TabIndex = 88;
+            this.kryptonLabel10.Values.Text = "Vehicle No.";
+            // 
+            // kryptonLabel19
+            // 
+            this.kryptonLabel19.Location = new System.Drawing.Point(32, 98);
+            this.kryptonLabel19.MaximumSize = new System.Drawing.Size(110, 25);
+            this.kryptonLabel19.Name = "kryptonLabel19";
+            this.kryptonLabel19.Size = new System.Drawing.Size(53, 23);
+            this.kryptonLabel19.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel19.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel19.TabIndex = 97;
+            this.kryptonLabel19.Values.Text = "Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
+            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label1.Location = new System.Drawing.Point(26, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 21);
+            this.label1.TabIndex = 94;
+            this.label1.Text = "Invoice Details";
+            // 
+            // kryptonLabel16
+            // 
+            this.kryptonLabel16.Location = new System.Drawing.Point(695, 667);
+            this.kryptonLabel16.MaximumSize = new System.Drawing.Size(110, 25);
+            this.kryptonLabel16.Name = "kryptonLabel16";
+            this.kryptonLabel16.Size = new System.Drawing.Size(101, 23);
+            this.kryptonLabel16.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel16.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel16.TabIndex = 96;
+            this.kryptonLabel16.Values.Text = "Amount Paid";
+            // 
+            // kryptonLabel15
+            // 
+            this.kryptonLabel15.Location = new System.Drawing.Point(695, 696);
+            this.kryptonLabel15.MaximumSize = new System.Drawing.Size(355, 25);
+            this.kryptonLabel15.Name = "kryptonLabel15";
+            this.kryptonLabel15.Size = new System.Drawing.Size(125, 23);
+            this.kryptonLabel15.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel15.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel15.TabIndex = 99;
+            this.kryptonLabel15.Values.Text = "Balance Amount";
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Location = new System.Drawing.Point(181, 96);
+            this.txtCustomerName.MaximumSize = new System.Drawing.Size(249, 25);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(249, 25);
+            this.txtCustomerName.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtCustomerName.StateCommon.Border.Width = 0;
+            this.txtCustomerName.TabIndex = 103;
+            // 
+            // txtVehicleNo
+            // 
+            this.txtVehicleNo.Location = new System.Drawing.Point(181, 135);
+            this.txtVehicleNo.MaximumSize = new System.Drawing.Size(249, 25);
+            this.txtVehicleNo.Name = "txtVehicleNo";
+            this.txtVehicleNo.Size = new System.Drawing.Size(249, 25);
+            this.txtVehicleNo.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtVehicleNo.StateCommon.Border.Width = 0;
+            this.txtVehicleNo.TabIndex = 104;
+            // 
+            // txtInvoiceNo
+            // 
+            this.txtInvoiceNo.Location = new System.Drawing.Point(181, 59);
+            this.txtInvoiceNo.MaximumSize = new System.Drawing.Size(249, 25);
+            this.txtInvoiceNo.Name = "txtInvoiceNo";
+            this.txtInvoiceNo.Size = new System.Drawing.Size(249, 25);
+            this.txtInvoiceNo.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.txtInvoiceNo.StateCommon.Border.Width = 0;
+            this.txtInvoiceNo.TabIndex = 106;
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(30, 59);
+            this.kryptonLabel1.MaximumSize = new System.Drawing.Size(110, 25);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(89, 23);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel1.TabIndex = 105;
+            this.kryptonLabel1.Values.Text = "Invoice No.";
+            // 
+            // invoiceDetails
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ClientSize = new System.Drawing.Size(1287, 755);
+            this.Controls.Add(this.txtInvoiceNo);
+            this.Controls.Add(this.kryptonLabel1);
+            this.Controls.Add(this.txtVehicleNo);
+            this.Controls.Add(this.txtCustomerName);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtOutstanding);
+            this.Controls.Add(this.txtAmountPaid);
+            this.Controls.Add(this.txtGrandTotal);
+            this.Controls.Add(this.kryptonLabel14);
+            this.Controls.Add(this.kryptonLabel19);
+            this.Controls.Add(this.txtMileage);
+            this.Controls.Add(this.kryptonLabel10);
+            this.Controls.Add(this.txtTotalDiscount);
+            this.Controls.Add(this.kryptonLabel11);
+            this.Controls.Add(this.txtChassisNo);
+            this.Controls.Add(this.kryptonGroupBox4);
+            this.Controls.Add(this.txtSubTotal);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.kryptonButton19);
+            this.Controls.Add(this.kryptonLabel15);
+            this.Controls.Add(this.kryptonLabel16);
+            this.Controls.Add(this.kryptonLabel9);
+            this.Controls.Add(this.kryptonLabel8);
+            this.Controls.Add(this.kryptonLabel7);
+            this.Controls.Add(this.kryptonLabel12);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "invoiceDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "invoiceDetails";
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox4.Panel)).EndInit();
+            this.kryptonGroupBox4.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox4)).EndInit();
+            this.kryptonGroupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private Krypton.Toolkit.KryptonGroupBox kryptonGroupBox4;
+        private Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel14;
+        private Krypton.Toolkit.KryptonButton kryptonButton19;
+        public Krypton.Toolkit.KryptonTextBox txtAmountPaid;
+        public Krypton.Toolkit.KryptonTextBox txtOutstanding;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        public Krypton.Toolkit.KryptonTextBox txtGrandTotal;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
+        public Krypton.Toolkit.KryptonTextBox txtTotalDiscount;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
+        public Krypton.Toolkit.KryptonTextBox txtSubTotal;
+        public Krypton.Toolkit.KryptonTextBox txtDescription;
+        public Krypton.Toolkit.KryptonTextBox txtChassisNo;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel12;
+        public Krypton.Toolkit.KryptonTextBox txtMileage;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel11;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel10;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel19;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
+        public System.Windows.Forms.DataGridViewTextBoxColumn itemName;
+        public System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        public System.Windows.Forms.DataGridViewTextBoxColumn unitPrice;
+        public System.Windows.Forms.DataGridViewTextBoxColumn itemTotal;
+        public System.Windows.Forms.DataGridViewTextBoxColumn discount;
+        public System.Windows.Forms.DataGridViewTextBoxColumn finalAmount;
+        public System.Windows.Forms.DataGridViewTextBoxColumn ItemType;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel16;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel15;
+        public Krypton.Toolkit.KryptonTextBox txtCustomerName;
+        private Krypton.Toolkit.KryptonTextBox txtVehicleNo;
+        public Krypton.Toolkit.KryptonTextBox txtInvoiceNo;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+    }
+}

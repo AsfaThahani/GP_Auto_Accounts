@@ -39,7 +39,7 @@ Follow these instructions to set up and run the project locally on your machine.
 
 2. **Database Setup:**
    * Open SQL Server Management Studio (SSMS).
-   * Execute the provided database script (e.g., `schema.sql`) to generate the tables and relations.
+   * Execute the provided database script (`schema.sql`) to generate the tables and relations.
 
 3. **Configuration:**
    * Open the project in Visual Studio.

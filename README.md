@@ -35,5 +35,18 @@ Follow these instructions to set up and run the project locally on your machine.
 ### Installation & Setup
 
 1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/AsfaThahani/GPAutoAccounts.git](https://github.com/AsfaThahani/GPAutoAccounts.git)
+   git clone https://github.com/AsfaThahani/GP_Auto_Accounts.git
+
+2. **Database Setup:**
+   * Open SQL Server Management Studio (SSMS).
+   * Execute the provided database script (e.g., `schema.sql`) to generate the tables and relations.
+
+3. **Configuration:**
+   * Open the project in Visual Studio.
+   * Update the connection string in your `App.config` file to match your local SQL Server instance name and credentials.
+
+### Running the Application
+
+1. Open the solution (`.sln`) file in Visual Studio.
+2. Build the solution (Ctrl + Shift + B).
+3. Press F5 or click Start to run the application.

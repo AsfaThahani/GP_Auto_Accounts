@@ -10,7 +10,7 @@ GP AutoAccounts is a tailored C# Windows Forms solution designed to automate end
 
 ## Core Features
 
-- **Digital Dashboard:** Tracks real-time sales, expenses, and overall account balances.
+- **Digital Dashboard:** Tracks sales, expenses, and overall account balances.
 - **Automated Financials:** Streamlines invoice generation and financial reporting.
 - **Dynamic Client Tracking:** Features dynamic customer balance tracking to easily manage pending payments and credit.
 - **Relational Database Modules:** Uses a normalized SQL Server architecture to securely manage workshop inventory and financial transactions.
